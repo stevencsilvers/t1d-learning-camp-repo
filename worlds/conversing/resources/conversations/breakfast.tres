@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Conversation" load_steps=6 format=3 uid="uid://dp4yorc8coal6"]
+
+[ext_resource type="Script" path="res://global/resources/bedrock_call.gd" id="1_2v4sq"]
+[ext_resource type="Texture2D" uid="uid://b84adnvcckmkv" path="res://worlds/conversing/environment/backgrounds/dining.png" id="1_qn036"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="2_43pr6"]
+
+[sub_resource type="Resource" id="Resource_xia0h"]
+script = ExtResource("1_2v4sq")
+model = "base"
+prompt = "(You are a pediatrician talking to a child with type 1 diabetes. Please respond in with a few sentences with simple language with a response that will help them stay healthy. Ask a follow up question if you want.) You: Give me an example of a food you ate for breakfast recently! Other: _. You: "
+length = 100
+temp = 0.3
+top_p = 0.5
+
+[sub_resource type="Resource" id="Resource_rkcg3"]
+script = ExtResource("1_2v4sq")
+model = "base"
+prompt = "(You are a pediatrician talking to a child with type 1 diabetes. Please respond in with a few sentences with simple language with a response that will help them stay healthy. Encourage them to always drink enough water. Ask a follow up question if you want.) You: What do you normally like to drink with your breakfast? Other: _. You: "
+length = 100
+temp = 0.3
+top_p = 0.5
+
+[resource]
+script = ExtResource("2_43pr6")
+background = ExtResource("1_qn036")
+dialog = Array[String](["Hi!", "Welcome back to the dining hall.", "Here, we can talk about the food you've been eating back at home!", "Today, we'll talk about breakfast.", "Eating a healthy breakfast is very important!", "Since breakfast is at the start of your day, eating a good balance of rocket and train foods can help keep you healthy throughout the day!", "And, make sure to drink lots of water with your breakfast!", "Drinking enough water can help your body keep your blood sugar levels just right.", "Now, how about you tell me a food you ate for breakfast recently!", "_", "^", "What do you normally like to drink with your breakfast?", "_", "^", "Thanks for chatting with me about breakfast!", "Goodbye!"])
+bedrock_calls = Array[ExtResource("1_2v4sq")]([SubResource("Resource_xia0h"), SubResource("Resource_rkcg3")])

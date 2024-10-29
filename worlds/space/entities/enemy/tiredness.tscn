@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://j1t5twfjg351"]
+
+[ext_resource type="PackedScene" uid="uid://dkts3055t0r1v" path="res://worlds/space/entities/enemy/follow_enemy.tscn" id="1_1enwt"]
+[ext_resource type="Texture2D" uid="uid://cke3upe1uck5u" path="res://global/symptoms/sprites/tired.png" id="2_yqj8b"]
+
+[node name="Tiredness" instance=ExtResource("1_1enwt")]
+data = 0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_yqj8b")

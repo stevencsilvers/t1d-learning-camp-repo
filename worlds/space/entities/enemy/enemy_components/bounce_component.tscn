@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwlvwmipeesus"]
+
+[ext_resource type="Script" path="res://worlds/space/entities/enemy/enemy_components/bounce_component.gd" id="1_fwkq1"]
+
+[node name="BounceComponent" type="Node2D"]
+script = ExtResource("1_fwkq1")

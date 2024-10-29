@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Conversation" load_steps=8 format=3 uid="uid://dt2pa06dely8o"]
+
+[ext_resource type="Texture2D" uid="uid://utnuetkf5c7y" path="res://worlds/conversing/environment/backgrounds/classroom.png" id="1_87f50"]
+[ext_resource type="Script" path="res://global/resources/bedrock_call.gd" id="1_h8hbn"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="2_dbqka"]
+
+[sub_resource type="Resource" id="Resource_b8dhf"]
+script = ExtResource("1_h8hbn")
+model = "base"
+prompt = "(You are a pediatrician quizzing a child with type 1 diabetes. Give them feedback on their answer in a couple short sentences with simple language, and use the term \"rocket food\". The correct answer: a lot of energy. If they do not respond appropriately, re-ask the question.) You: Does rocket food have a little energy or lots of energy? Other: _. You:"
+length = 100
+temp = 0.2
+top_p = 0.3
+
+[sub_resource type="Resource" id="Resource_iygcd"]
+script = ExtResource("1_h8hbn")
+model = "base"
+prompt = "(You are a pediatrician quizzing a child with type 1 diabetes. Give them feedback on their answer in a couple short sentences with simple language, and use the term \"train food\". The correct answer: a little of energy. If they do not respond appropriately, re-ask the question.) You: Does train food have a little energy or lots of energy? Other: _. You:"
+length = 100
+temp = 0.2
+top_p = 0.3
+
+[sub_resource type="Resource" id="Resource_tgjqb"]
+script = ExtResource("1_h8hbn")
+model = "base"
+prompt = "(You are a pediatrician talking to a child with type 1 diabetes. Rocket food is food high in carbohydrates, and train food is food low in carbohydrates.) You: Give me a food you like and I'll tell you if it's rocket food or train food! Other: _. You:"
+length = 100
+temp = 0.1
+top_p = 0.2
+
+[sub_resource type="Resource" id="Resource_ltfff"]
+script = ExtResource("1_h8hbn")
+model = "base"
+prompt = "(You are a pediatrician talking to a child with type 1 diabetes. Rocket food is food high in carbohydrates and gives you a lot of energy which is useful before physical activity, and train food is food low in carbohydrates that gives you little energy but helps you maintain the right blood sugar level throughout the day. Limit your response to a few sentences) You: Do you have any questions about rocket food and train food? Other: _. You:"
+length = 100
+temp = 0.4
+top_p = 0.6
+
+[resource]
+script = ExtResource("2_dbqka")
+background = ExtResource("1_87f50")
+dialog = Array[String](["Good morning!", "I hope you're having a fun time so far!", "Today, we will learn about eating healthy with rocket and train food!", "To give your body the energy that it needs, food has a type of sugar called carbohydrates.", "But remember, your body needs just the right amount of sugar, not too much and not too little.", "To help your body control it's sugar, you need to eat a balance of rocket food and train food.", "~rocket", "Rocket food is food with lots of carbohydrates.", "Like a rocket, rocket food is FULL of energy!", "~activities", "Rocket food is helpful for when you need lots of energy, like when you're going to do physical activities such as running, biking, or swimming.", "~rocketfood", "Some examples of rocket food are white bread, french fries, pancakes, pizza, and bananas.", "However, make sure not to eat too much rocket food or your blood sugar might get too high!", "~train", "On the other hand, train food is food with less carbohydrates.", "Like a train, train food moves slow and steady.", "Eating train food will help you maintain the right level of blood sugar throughout the day.", "~trainfood", "Some examples of train food are eggs, broccoli, berries like strawberries and blueberries, and avocado.", "~", "Now, let's do some review!", "~rocket", "Does rocket food have a little energy or lots of energy?", "_", "^", "~train", "What about train food? Does it have a little energy or lots of energy?", "_", "^", "~", "Now, give me a food you like and I'll tell you if it's a rocket food or a train food!", "_", "^", "Great job learning today!", "Do you have any questions about rocket food and train food?", "_", "^", "Well, I'll see you tomorrow for another lesson!", "Have fun today!"])
+bedrock_calls = Array[ExtResource("1_h8hbn")]([SubResource("Resource_b8dhf"), SubResource("Resource_iygcd"), SubResource("Resource_tgjqb"), SubResource("Resource_ltfff")])

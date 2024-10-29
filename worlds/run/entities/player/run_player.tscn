@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwbysfgt2s6t8"]
+
+[ext_resource type="Texture2D" uid="uid://sqxa6d7jeip" path="res://icon.svg" id="1_ix5tx"]
+[ext_resource type="Script" path="res://worlds/run/entities/player/run_player.gd" id="1_nlfgn"]
+
+[node name="RunPlayer" type="Node2D"]
+position = Vector2(960, 540)
+script = ExtResource("1_nlfgn")
+
+[node name="SpriteHolder" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteHolder"]
+position = Vector2(961, 540)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_ix5tx")

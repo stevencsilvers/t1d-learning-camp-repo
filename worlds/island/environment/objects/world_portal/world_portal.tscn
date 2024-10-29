@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctxkfrvbieeus"]
+
+[ext_resource type="Script" path="res://worlds/island/environment/objects/world_portal/world_portal.gd" id="1_n6enk"]
+[ext_resource type="Shader" path="res://global/effects/shaders/outline.gdshader" id="2_ttcb3"]
+[ext_resource type="Texture2D" uid="uid://p6b7pj1ptbbk" path="res://worlds/island/environment/objects/world_portal/sprites/house_shadow.png" id="2_ukmqg"]
+[ext_resource type="Texture2D" uid="uid://b6qj3p7vqy2u" path="res://worlds/island/environment/objects/world_portal/sprites/house.png" id="3_1yvo2"]
+[ext_resource type="PackedScene" uid="uid://ci2cv5dlrqdel" path="res://global/managers/dialog_manager.tscn" id="3_akdnk"]
+[ext_resource type="Texture2D" uid="uid://c3qfav5sovvdq" path="res://worlds/island/environment/objects/world_portal/sprites/house_grass.png" id="5_gfe6r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6f1m"]
+shader = ExtResource("2_ttcb3")
+shader_parameter/show = false
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0wjw"]
+radius = 111.005
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhboo"]
+size = Vector2(142, 82)
+
+[node name="WorldPortal" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_n6enk")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -200
+position = Vector2(0, -72)
+texture = ExtResource("2_ukmqg")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_h6f1m")
+position = Vector2(0, -72)
+texture = ExtResource("3_1yvo2")
+
+[node name="Grass" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -72)
+texture = ExtResource("5_gfe6r")
+
+[node name="PortalArea" type="Area2D" parent="."]
+position = Vector2(0, 50)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea"]
+shape = SubResource("CircleShape2D_v0wjw")
+debug_color = Color(0.866667, 0, 0.858824, 0.12549)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 53)
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.08165e-12, -52)
+shape = SubResource("RectangleShape2D_dhboo")
+
+[node name="DialogManager" parent="." instance=ExtResource("3_akdnk")]
+position = Vector2(0, -324)
+max_width = 720
+interactable = false
+
+[connection signal="body_entered" from="PortalArea" to="." method="_on_portal_area_body_entered"]
+[connection signal="body_exited" from="PortalArea" to="." method="_on_portal_area_body_exited"]

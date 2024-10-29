@@ -1,0 +1,119 @@
+[gd_scene load_steps=16 format=3 uid="uid://dq23s2vukh2s6"]
+
+[ext_resource type="Script" path="res://worlds/island/entities/player/island_player.gd" id="1_sh04q"]
+[ext_resource type="Texture2D" uid="uid://fjjpi7p78qbd" path="res://worlds/island/entities/player/sprites/dog_down.png" id="2_a1n3b"]
+[ext_resource type="Texture2D" uid="uid://bjdfvijyattcb" path="res://worlds/island/entities/player/sprites/dog_downright.png" id="3_bj6kg"]
+[ext_resource type="Texture2D" uid="uid://cnawwpqigd0x" path="res://worlds/island/entities/player/sprites/dog_right.png" id="4_eos4u"]
+[ext_resource type="Texture2D" uid="uid://b8hek3uypdkmd" path="res://worlds/island/entities/player/sprites/dog_up.png" id="5_6t5hj"]
+[ext_resource type="Texture2D" uid="uid://bkx4ghn8560l4" path="res://worlds/island/entities/player/sprites/dog_upright.png" id="6_rlwv2"]
+[ext_resource type="Script" path="res://worlds/island/entities/player/island_player_sprite.gd" id="7_eaalw"]
+[ext_resource type="Texture2D" uid="uid://bpsdb41ag8pmi" path="res://global/effects/particles/sprites/puff.png" id="8_g3nvt"]
+[ext_resource type="Script" path="res://worlds/island/entities/player/island_player_sfx_manager.gd" id="9_5wu2n"]
+[ext_resource type="Script" path="res://worlds/island/entities/player/compass.gd" id="10_71ona"]
+[ext_resource type="Texture2D" uid="uid://dpfppmywcnhoa" path="res://worlds/island/entities/player/sprites/compass.png" id="11_7dtls"]
+[ext_resource type="Script" path="res://worlds/island/entities/player/footstep_spawner.gd" id="12_proyr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wrint"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a1n3b")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bj6kg")
+}],
+"loop": true,
+"name": &"walk_downright",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_eos4u")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6t5hj")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rlwv2")
+}],
+"loop": true,
+"name": &"walk_upright",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8oi2x"]
+radius = 24.0208
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dcv7"]
+radius = 3.16228
+
+[node name="IslandPlayer" type="CharacterBody2D" groups=["island_player"]]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_sh04q")
+
+[node name="IslandPlayerSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_wrint")
+animation = &"walk_down"
+script = ExtResource("7_eaalw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 27)
+shape = SubResource("CircleShape2D_8oi2x")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.1073, 0.348108, 0.37, 0.411765)
+z_index = -1
+position = Vector2(1, 46)
+scale = Vector2(1.2, 0.9)
+texture = ExtResource("8_g3nvt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="IslandPlayerSFXManager" type="Node2D" parent="."]
+script = ExtResource("9_5wu2n")
+
+[node name="SurfaceArea" type="Area2D" parent="."]
+position = Vector2(0, 40)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SurfaceArea"]
+shape = SubResource("CircleShape2D_7dcv7")
+debug_color = Color(0.959455, 0, 0.521533, 0.42)
+
+[node name="Compass" type="Node2D" parent="."]
+script = ExtResource("10_71ona")
+
+[node name="CompassSprite" type="Sprite2D" parent="Compass"]
+position = Vector2(0, -96)
+texture = ExtResource("11_7dtls")
+
+[node name="FootstepSpawner" type="Node2D" parent="." node_paths=PackedStringArray("sfx_manager")]
+position = Vector2(0, 39)
+script = ExtResource("12_proyr")
+sfx_manager = NodePath("../IslandPlayerSFXManager")
+
+[node name="FootstepTimer" type="Timer" parent="FootstepSpawner"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="stepped" from="IslandPlayerSprite" to="IslandPlayerSFXManager" method="play_walk_sound"]
+[connection signal="stepped" from="IslandPlayerSprite" to="FootstepSpawner" method="_on_island_player_sprite_stepped"]
+[connection signal="timeout" from="FootstepSpawner/FootstepTimer" to="FootstepSpawner" method="_on_footstep_timer_timeout"]

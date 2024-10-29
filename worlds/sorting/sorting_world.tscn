@@ -1,0 +1,190 @@
+[gd_scene load_steps=38 format=3 uid="uid://cdan27dtnupt3"]
+
+[ext_resource type="Texture2D" uid="uid://utnuetkf5c7y" path="res://worlds/conversing/environment/backgrounds/classroom.png" id="1_8icpo"]
+[ext_resource type="Script" path="res://worlds/sorting/sorting_world.gd" id="1_i0ekp"]
+[ext_resource type="PackedScene" uid="uid://neyerwtvml8j" path="res://global/managers/score_manager.tscn" id="2_kdyi8"]
+[ext_resource type="Script" path="res://global/food/food_resources/food.gd" id="2_s7fbb"]
+[ext_resource type="Resource" uid="uid://cnwqavhuyhfjq" path="res://global/food/food_resources/rocket/banana.tres" id="3_hceh6"]
+[ext_resource type="PackedScene" uid="uid://dslewxenm5axe" path="res://global/ui/robot_tips/robot_tips.tscn" id="3_nu6f6"]
+[ext_resource type="Resource" uid="uid://chexjxo78u87d" path="res://global/food/food_resources/rocket/french_fries.tres" id="4_8po1t"]
+[ext_resource type="Script" path="res://worlds/sorting/objects/sorting_container/sorting_container.gd" id="4_j61al"]
+[ext_resource type="Theme" uid="uid://dlsrd5aew0fxs" path="res://global/ui/themes/cartoon.tres" id="4_malk4"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="4_wjvbu"]
+[ext_resource type="Texture2D" uid="uid://dcb0tlj5x3yp7" path="res://global/ui/text_box/text_box.png" id="5_4xllc"]
+[ext_resource type="Resource" uid="uid://bcodvv7w2ghsj" path="res://global/food/food_resources/rocket/pancakes.tres" id="5_i7ai5"]
+[ext_resource type="Script" path="res://global/resources/bedrock_call.gd" id="5_vjwf8"]
+[ext_resource type="Resource" uid="uid://bqqagslnxy33w" path="res://global/food/food_resources/rocket/pizza.tres" id="6_tdbjw"]
+[ext_resource type="Texture2D" uid="uid://cx0rpuwe24tr1" path="res://worlds/space/entities/player/sprites/rocket.png" id="7_4jy45"]
+[ext_resource type="Resource" uid="uid://3w5e2ewpf34k" path="res://global/food/food_resources/rocket/white_bread.tres" id="7_hkfho"]
+[ext_resource type="Texture2D" uid="uid://ua6eo4nfb04q" path="res://worlds/space/entities/player/sprites/train.png" id="8_3fr8t"]
+[ext_resource type="Resource" uid="uid://ccv8jomi4eo7n" path="res://global/food/food_resources/rocket/white_rice.tres" id="8_s13rb"]
+[ext_resource type="Resource" uid="uid://chc0uol61ug2p" path="res://global/food/food_resources/train/almonds.tres" id="9_inoa8"]
+[ext_resource type="Resource" uid="uid://4bhmiaymhxk" path="res://global/food/food_resources/train/avocado.tres" id="10_y8s5h"]
+[ext_resource type="Resource" uid="uid://bu6h53prbxivd" path="res://global/food/food_resources/train/blueberries.tres" id="11_ecyqw"]
+[ext_resource type="Resource" uid="uid://dcener726iqnq" path="res://global/food/food_resources/train/broccoli.tres" id="12_bf46y"]
+[ext_resource type="Resource" uid="uid://burorraehiwp3" path="res://global/food/food_resources/train/eggs.tres" id="13_kdxv0"]
+[ext_resource type="Resource" uid="uid://cyf3opcfyetww" path="res://global/food/food_resources/train/strawberries.tres" id="14_yt3co"]
+[ext_resource type="Script" path="res://global/symptoms/symptom.gd" id="15_j37ol"]
+[ext_resource type="Resource" uid="uid://bdt78qorcb3ej" path="res://global/symptoms/symptom_resources/dizziness.tres" id="16_e1mcg"]
+[ext_resource type="Resource" uid="uid://bopn8iy3emsce" path="res://global/symptoms/symptom_resources/hungry.tres" id="17_ugamv"]
+[ext_resource type="Resource" uid="uid://ds64w6avurd1o" path="res://global/symptoms/symptom_resources/peeing.tres" id="18_4rd27"]
+[ext_resource type="Resource" uid="uid://bxqtgvdx36ej2" path="res://global/symptoms/symptom_resources/sweating.tres" id="19_dx5yy"]
+[ext_resource type="Resource" uid="uid://bg4h47eicx68i" path="res://global/symptoms/symptom_resources/thirsty.tres" id="20_0vn00"]
+[ext_resource type="Resource" uid="uid://c4emaf71me72y" path="res://global/symptoms/symptom_resources/tired.tres" id="21_2pcqd"]
+[ext_resource type="Texture2D" uid="uid://ybs0h3kx7t8e" path="res://worlds/sorting/icons/high.png" id="22_hdchm"]
+[ext_resource type="Texture2D" uid="uid://cthkaatoj5dyo" path="res://worlds/sorting/icons/low.png" id="23_ge3jl"]
+
+[sub_resource type="Resource" id="Resource_ytuv6"]
+script = ExtResource("4_wjvbu")
+dialog = Array[String](["Welcome to sorting!", "In this minigame, your goal is to sort each food into the \"rocket food\" or \"train food\" box.", "See how you can do!"])
+bedrock_calls = Array[ExtResource("5_vjwf8")]([])
+
+[sub_resource type="Resource" id="Resource_hy2fn"]
+script = ExtResource("4_wjvbu")
+dialog = Array[String](["Welcome back to sorting!", "There are a few more foods this time.", "See if you can sort them into the rocket and train food boxes!"])
+bedrock_calls = Array[ExtResource("5_vjwf8")]([])
+
+[sub_resource type="Resource" id="Resource_a8bbp"]
+script = ExtResource("4_wjvbu")
+dialog = Array[String](["Welcome back to sorting!", "We're sorting the feelings of high and low blood sugar this time!", "Good luck!"])
+bedrock_calls = Array[ExtResource("5_vjwf8")]([])
+
+[sub_resource type="Resource" id="Resource_7qide"]
+script = ExtResource("4_wjvbu")
+dialog = Array[String](["Welcome back to sorting!", "More foods again!"])
+bedrock_calls = Array[ExtResource("5_vjwf8")]([])
+
+[node name="SortingWorld" type="Node2D" node_paths=PackedStringArray("containers") groups=["sorting_world"]]
+script = ExtResource("1_i0ekp")
+containers = [NodePath("CanvasLayer/MarginContainer/VSplitContainer2/VSplitContainer/HSplitContainer/MarginContainer/LeftContainer"), NodePath("CanvasLayer/MarginContainer/VSplitContainer2/VSplitContainer/HSplitContainer/MarginContainer2/RightContainer")]
+food = Array[ExtResource("2_s7fbb")]([ExtResource("7_hkfho"), ExtResource("5_i7ai5"), ExtResource("14_yt3co"), ExtResource("13_kdxv0"), ExtResource("3_hceh6"), ExtResource("4_8po1t"), ExtResource("10_y8s5h"), ExtResource("11_ecyqw"), ExtResource("6_tdbjw"), ExtResource("8_s13rb"), ExtResource("9_inoa8"), ExtResource("12_bf46y")])
+symptoms = Array[ExtResource("15_j37ol")]([ExtResource("16_e1mcg"), ExtResource("17_ugamv"), ExtResource("18_4rd27"), ExtResource("19_dx5yy"), ExtResource("20_0vn00"), ExtResource("21_2pcqd")])
+use_symptom_indexes = Array[int]([2])
+icon_high = ExtResource("22_hdchm")
+icon_low = ExtResource("23_ge3jl")
+
+[node name="ScoreManager" parent="." node_paths=PackedStringArray("score_label") instance=ExtResource("2_kdyi8")]
+score_label = NodePath("../CanvasLayer/MarginContainer/VSplitContainer2/MarginContainer/Score")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="RobotTips" parent="CanvasLayer3" instance=ExtResource("3_nu6f6")]
+tips = Array[ExtResource("4_wjvbu")]([SubResource("Resource_ytuv6"), SubResource("Resource_hy2fn"), SubResource("Resource_a8bbp"), SubResource("Resource_7qide")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ClassroomBG" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(0.22, 0.139957, 0.0902, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8icpo")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+split_offset = 120
+dragger_visibility = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer2"]
+layout_mode = 2
+
+[node name="Score" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VSplitContainer2/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_malk4")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 30
+theme_override_font_sizes/normal_font_size = 96
+text = "12345"
+
+[node name="VSplitContainer" type="VSplitContainer" parent="CanvasLayer/MarginContainer/VSplitContainer2"]
+layout_mode = 2
+split_offset = 670
+dragger_visibility = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/VSplitContainer2/VSplitContainer"]
+layout_mode = 2
+split_offset = 940
+dragger_visibility = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer2/VSplitContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="LeftContainer" type="NinePatchRect" parent="CanvasLayer/MarginContainer/VSplitContainer2/VSplitContainer/HSplitContainer/MarginContainer"]
+modulate = Color(0.39, 0.260325, 0.1677, 1)
+layout_mode = 2
+mouse_filter = 1
+texture = ExtResource("5_4xllc")
+script = ExtResource("4_j61al")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer2/VSplitContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RightContainer" type="NinePatchRect" parent="CanvasLayer/MarginContainer/VSplitContainer2/VSplitContainer/HSplitContainer/MarginContainer2"]
+modulate = Color(0.39, 0.260325, 0.1677, 1)
+layout_mode = 2
+mouse_filter = 1
+texture = ExtResource("5_4xllc")
+script = ExtResource("4_j61al")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer2/VSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/MarginContainer/VSplitContainer2/VSplitContainer/MarginContainer"]
+modulate = Color(0.39, 0.260325, 0.1677, 1)
+layout_mode = 2
+texture = ExtResource("5_4xllc")
+region_rect = Rect2(0, 0, 768, 768)
+patch_margin_left = 128
+patch_margin_top = 128
+patch_margin_right = 128
+patch_margin_bottom = 128
+
+[node name="IconR" type="TextureRect" parent="CanvasLayer"]
+offset_left = 1652.0
+offset_top = 592.0
+offset_right = 1908.0
+offset_bottom = 848.0
+texture = ExtResource("7_4jy45")
+stretch_mode = 5
+
+[node name="IconL" type="TextureRect" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 583.0
+offset_right = 264.0
+offset_bottom = 839.0
+texture = ExtResource("8_3fr8t")
+stretch_mode = 5
+
+[node name="Objects" type="CanvasLayer" parent="."]
+
+[node name="SpawnCornerL" type="Node2D" parent="Objects"]
+position = Vector2(125, 875)
+
+[node name="SpawnCornerR" type="Node2D" parent="Objects"]
+position = Vector2(1795, 950)

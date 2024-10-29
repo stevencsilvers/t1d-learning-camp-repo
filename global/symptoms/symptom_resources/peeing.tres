@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Symptom" load_steps=3 format=3 uid="uid://ds64w6avurd1o"]
+
+[ext_resource type="Script" path="res://global/symptoms/symptom.gd" id="1_fqip6"]
+[ext_resource type="Texture2D" uid="uid://8gvr4107pn4x" path="res://global/symptoms/sprites/peeing.png" id="2_gwqqs"]
+
+[resource]
+script = ExtResource("1_fqip6")
+name = "peeing a lot"
+sprite = ExtResource("2_gwqqs")
+high = true

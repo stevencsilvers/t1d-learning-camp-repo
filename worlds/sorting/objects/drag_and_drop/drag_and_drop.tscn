@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dc4fahscphgw5"]
+
+[ext_resource type="Script" path="res://worlds/sorting/objects/drag_and_drop/drag_and_drop.gd" id="1_2qfu3"]
+[ext_resource type="Shader" path="res://global/effects/shaders/outline.gdshader" id="2_ex6fe"]
+[ext_resource type="Texture2D" uid="uid://d0jjtxjlwp0jw" path="res://global/food/temp/apple.png" id="3_aq25b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1dwnq"]
+shader = ExtResource("2_ex6fe")
+shader_parameter/show = false
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a283f"]
+radius = 98.0051
+
+[node name="DragAndDrop" type="Node2D"]
+script = ExtResource("1_2qfu3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1dwnq")
+texture = ExtResource("3_aq25b")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_a283f")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

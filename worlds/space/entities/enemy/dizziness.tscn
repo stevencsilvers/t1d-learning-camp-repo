@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfvsxiynne0ug"]
+
+[ext_resource type="PackedScene" uid="uid://c4fc63h8mqylg" path="res://worlds/space/entities/enemy/bounce_enemy.tscn" id="1_461fl"]
+[ext_resource type="Texture2D" uid="uid://x3mwl72fcaw0" path="res://global/symptoms/sprites/dizziness.png" id="2_6w8jr"]
+
+[node name="Dizziness" instance=ExtResource("1_461fl")]
+data = 1
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_6w8jr")

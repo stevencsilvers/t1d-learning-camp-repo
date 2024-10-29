@@ -1,0 +1,166 @@
+[gd_scene load_steps=20 format=3 uid="uid://c01u5sqed527"]
+
+[ext_resource type="Texture2D" uid="uid://bkimn3uxhnkmk" path="res://worlds/space/environment/space.png" id="1_23m7x"]
+[ext_resource type="Script" path="res://worlds/space/space_world.gd" id="1_b0pp8"]
+[ext_resource type="PackedScene" uid="uid://du33p4ltutgg5" path="res://worlds/space/entities/player/space_player.tscn" id="1_rtv6w"]
+[ext_resource type="PackedScene" uid="uid://cjqlbwfk27vse" path="res://worlds/space/managers/enemy_manager.tscn" id="1_sgfi0"]
+[ext_resource type="Texture2D" uid="uid://djm2jv1lctpi0" path="res://worlds/space/environment/stars.png" id="2_bj8yu"]
+[ext_resource type="PackedScene" uid="uid://dslewxenm5axe" path="res://global/ui/robot_tips/robot_tips.tscn" id="3_sgyj2"]
+[ext_resource type="FontFile" uid="uid://cj5mjr4g2f3yp" path="res://global/ui/fonts/PatrickHand-Regular.ttf" id="4_0v3e0"]
+[ext_resource type="Script" path="res://worlds/space/environment/stars.gd" id="4_5m17c"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="5_03pc1"]
+[ext_resource type="Script" path="res://worlds/space/bullet_catcher.gd" id="5_ljxsh"]
+[ext_resource type="Script" path="res://global/resources/bedrock_call.gd" id="6_rs2xl"]
+[ext_resource type="PackedScene" uid="uid://neyerwtvml8j" path="res://global/managers/score_manager.tscn" id="7_5jay2"]
+
+[sub_resource type="Resource" id="Resource_e1q4d"]
+script = ExtResource("5_03pc1")
+dialog = Array[String](["Welcome to Symptom Space Destroyer!", "In this minigame, you need to get rid of the symptoms.", "You will see symptoms of high blood sugar and symptoms of low blood sugar.,", "Remember that rocket food can combat low blood sugar,", "and that train food can combat high blood sugar!", "Press 'space' to switch between the rocket and train!", "Press 'enter' to shoot!", "Good luck!"])
+bedrock_calls = Array[ExtResource("6_rs2xl")]([])
+
+[sub_resource type="Resource" id="Resource_w53lp"]
+script = ExtResource("5_03pc1")
+dialog = Array[String](["Welcome back to Symptom Space Destroyer!", "Remember, use 'space' to swap and 'enter' to shoot!", "Can you get a new highscore?"])
+bedrock_calls = Array[ExtResource("6_rs2xl")]([])
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1hwjy"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c1krn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u1ivj"]
+normal = Vector2(2.08165e-12, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xvgt1"]
+normal = Vector2(1, 2.08165e-12)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gn6mq"]
+normal = Vector2(-1, 2.08165e-12)
+
+[node name="SpaceWorld" type="Node2D" groups=["world"]]
+script = ExtResource("1_b0pp8")
+
+[node name="UI" type="CanvasLayer" parent="." groups=["ui"]]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScoreLabel" type="RichTextLabel" parent="UI/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/normal_font = ExtResource("4_0v3e0")
+theme_override_font_sizes/normal_font_size = 100
+text = " 0"
+scroll_active = false
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="RobotTips" parent="UI" instance=ExtResource("3_sgyj2")]
+tips = Array[ExtResource("5_03pc1")]([SubResource("Resource_e1q4d"), SubResource("Resource_w53lp")])
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="Space" type="Sprite2D" parent="Environment"]
+z_index = -100
+position = Vector2(960, 540)
+texture = ExtResource("1_23m7x")
+
+[node name="Stars" type="Node2D" parent="Environment"]
+script = ExtResource("4_5m17c")
+
+[node name="StarsFront" type="Sprite2D" parent="Environment/Stars"]
+modulate = Color(1, 1, 1, 0.627451)
+z_index = -95
+texture_repeat = 2
+position = Vector2(5760, 540)
+texture = ExtResource("2_bj8yu")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 11520, 1080)
+
+[node name="StarsMiddle" type="Sprite2D" parent="Environment/Stars"]
+modulate = Color(1, 1, 1, 0.392157)
+z_index = -96
+texture_repeat = 2
+position = Vector2(5760, 540)
+scale = Vector2(-0.8, 0.8)
+texture = ExtResource("2_bj8yu")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 14400, 1350)
+
+[node name="StarsBack" type="Sprite2D" parent="Environment/Stars"]
+modulate = Color(1, 1, 1, 0.25098)
+z_index = -97
+texture_repeat = 2
+position = Vector2(5760, 540)
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bj8yu")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 23040, 2160)
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="EnemyManager" parent="Managers" instance=ExtResource("1_sgfi0")]
+position = Vector2(2200, 540)
+
+[node name="ScoreManager" parent="Managers" node_paths=PackedStringArray("score_label") instance=ExtResource("7_5jay2")]
+score_label = NodePath("../../UI/MarginContainer/ScoreLabel")
+
+[node name="Boundries" type="Node" parent="."]
+
+[node name="BulletCatcher" type="Area2D" parent="Boundries"]
+position = Vector2(2000, 540)
+collision_mask = 32
+script = ExtResource("5_ljxsh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundries/BulletCatcher"]
+shape = SubResource("WorldBoundaryShape2D_1hwjy")
+
+[node name="WorldBoundry" type="StaticBody2D" parent="Boundries"]
+position = Vector2(960, 1180)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundries/WorldBoundry"]
+shape = SubResource("WorldBoundaryShape2D_c1krn")
+
+[node name="WorldBoundry2" type="StaticBody2D" parent="Boundries"]
+position = Vector2(960, -100)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundries/WorldBoundry2"]
+shape = SubResource("WorldBoundaryShape2D_u1ivj")
+
+[node name="WorldBoundry3" type="StaticBody2D" parent="Boundries"]
+position = Vector2(-100, 540)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundries/WorldBoundry3"]
+shape = SubResource("WorldBoundaryShape2D_xvgt1")
+
+[node name="WorldBoundry4" type="StaticBody2D" parent="Boundries"]
+position = Vector2(2020, 540)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundries/WorldBoundry4"]
+shape = SubResource("WorldBoundaryShape2D_gn6mq")
+
+[node name="Projectiles" type="Node" parent="."]
+
+[node name="SpacePlayer" parent="." instance=ExtResource("1_rtv6w")]
+position = Vector2(375, 363)
+
+[connection signal="tips_finished" from="UI/RobotTips" to="SpacePlayer" method="_on_robot_tips_tips_finished"]
+[connection signal="score_changed" from="Managers/ScoreManager" to="." method="_on_score_manager_score_changed"]
+[connection signal="area_entered" from="Boundries/BulletCatcher" to="Boundries/BulletCatcher" method="_on_area_entered"]

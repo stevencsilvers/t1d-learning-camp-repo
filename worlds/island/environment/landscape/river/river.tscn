@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://1im287bayu2l"]
+
+[ext_resource type="Script" path="res://worlds/island/environment/landscape/river/river.gd" id="1_oqa4c"]
+
+[node name="River" type="Line2D"]
+z_index = -700
+width = 0.0
+default_color = Color(0.126, 0.3997, 0.84, 1)
+script = ExtResource("1_oqa4c")
+particles_spacing = 150

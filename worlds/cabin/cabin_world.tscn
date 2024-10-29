@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://1kwor201picf"]
+
+[ext_resource type="Script" path="res://worlds/cabin/cabin_world.gd" id="1_5snvq"]
+[ext_resource type="Texture2D" uid="uid://utnuetkf5c7y" path="res://worlds/conversing/environment/backgrounds/classroom.png" id="2_seafc"]
+
+[node name="CabinWorld" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5snvq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_seafc")
+
+[node name="SleepButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 693.0
+offset_top = 674.0
+offset_right = 1107.0
+offset_bottom = 955.0
+text = "Sleep"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="SleepButton" to="." method="_on_sleep_button_pressed"]

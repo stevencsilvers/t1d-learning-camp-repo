@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://46klxqm3g628"]
+
+[ext_resource type="PackedScene" uid="uid://ctxkfrvbieeus" path="res://worlds/island/environment/objects/world_portal/world_portal.tscn" id="1_ux6lt"]
+[ext_resource type="Texture2D" uid="uid://cm441dicqbbm1" path="res://worlds/island/environment/objects/world_portal/sprites/schoolhouse_shadow.png" id="2_cxy1r"]
+[ext_resource type="Texture2D" uid="uid://cfmiy116go7ft" path="res://worlds/island/environment/objects/world_portal/sprites/schoolhouse.png" id="2_tj207"]
+[ext_resource type="Texture2D" uid="uid://b4vw1eu3f4ttg" path="res://worlds/island/environment/objects/world_portal/sprites/schoolhouse_grass.png" id="4_xfg3j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbf54"]
+radius = 146.014
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bp0vk"]
+size = Vector2(263, 90)
+
+[node name="Schoolhouse" instance=ExtResource("1_ux6lt")]
+destination_world = "conversing"
+dialog_text = "Enter the schoolhouse!"
+
+[node name="Shadow" parent="." index="0"]
+texture = ExtResource("2_cxy1r")
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("2_tj207")
+
+[node name="Grass" parent="." index="2"]
+texture = ExtResource("4_xfg3j")
+
+[node name="CollisionShape2D" parent="PortalArea" index="0"]
+shape = SubResource("CircleShape2D_cbf54")
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-4.5, -52)
+shape = SubResource("RectangleShape2D_bp0vk")
+
+[node name="DialogManager" parent="." index="5"]
+position = Vector2(526, -184)

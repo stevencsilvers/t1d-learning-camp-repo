@@ -1,0 +1,1492 @@
+[gd_scene load_steps=50 format=3 uid="uid://dumskoebo6wog"]
+
+[ext_resource type="PackedScene" uid="uid://dq23s2vukh2s6" path="res://worlds/island/entities/player/island_player.tscn" id="1_2a6r7"]
+[ext_resource type="Script" path="res://worlds/island/managers/time_manager.gd" id="1_pa2g2"]
+[ext_resource type="Script" path="res://worlds/island/island_world.gd" id="1_sq0gj"]
+[ext_resource type="PackedScene" uid="uid://b65rsxi5xhyj8" path="res://worlds/island/environment/objects/trees/tree.tscn" id="4_aqqul"]
+[ext_resource type="Script" path="res://worlds/island/ui/island_ui.gd" id="4_gj0oh"]
+[ext_resource type="Texture2D" uid="uid://dcb0tlj5x3yp7" path="res://global/ui/text_box/text_box.png" id="4_rcmdp"]
+[ext_resource type="PackedScene" uid="uid://da4y1ma480gux" path="res://worlds/island/environment/objects/trees/evergreen.tscn" id="5_121rr"]
+[ext_resource type="FontFile" uid="uid://cj5mjr4g2f3yp" path="res://global/ui/fonts/PatrickHand-Regular.ttf" id="5_wqfb3"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="5_yjk4h"]
+[ext_resource type="Script" path="res://global/resources/bedrock_call.gd" id="6_da4w7"]
+[ext_resource type="PackedScene" uid="uid://bdvgir3p655gm" path="res://worlds/island/environment/landscape/island.tscn" id="6_nug6c"]
+[ext_resource type="PackedScene" uid="uid://1gvcdekktc3l" path="res://worlds/island/entities/npc/npc.tscn" id="7_081h4"]
+[ext_resource type="PackedScene" uid="uid://dnyfiq2wb7too" path="res://worlds/island/environment/landscape/paths.tscn" id="7_nqvby"]
+[ext_resource type="PackedScene" uid="uid://66c2ekkgmvf7" path="res://worlds/island/environment/objects/trees/forest_boundry.tscn" id="8_f44cs"]
+[ext_resource type="PackedScene" uid="uid://ctxkfrvbieeus" path="res://worlds/island/environment/objects/world_portal/world_portal.tscn" id="8_iet5n"]
+[ext_resource type="PackedScene" uid="uid://1im287bayu2l" path="res://worlds/island/environment/landscape/river/river.tscn" id="10_dcand"]
+[ext_resource type="Texture2D" uid="uid://dtwem6rvujr1p" path="res://global/effects/particles/sprites/rectangle.png" id="15_4mkdy"]
+[ext_resource type="Texture2D" uid="uid://dpxnx4ygluiiw" path="res://worlds/island/entities/npc/sprites/cat.png" id="16_2rlkg"]
+[ext_resource type="PackedScene" uid="uid://46klxqm3g628" path="res://worlds/island/environment/objects/world_portal/schoolhouse.tscn" id="17_gqohc"]
+[ext_resource type="Texture2D" uid="uid://bhvppkn7klgd5" path="res://worlds/island/entities/npc/sprites/cat_talk.png" id="17_kqbn4"]
+[ext_resource type="Script" path="res://worlds/island/surfaces.gd" id="18_720yw"]
+[ext_resource type="PackedScene" uid="uid://keg51yta5i1o" path="res://worlds/island/environment/objects/world_portal/dining_hall.tscn" id="18_hp118"]
+[ext_resource type="Texture2D" uid="uid://c8f6t20akqa45" path="res://worlds/island/entities/npc/sprites/penguin.png" id="18_o4vo5"]
+[ext_resource type="Texture2D" uid="uid://bv3hg8a35xx0k" path="res://worlds/island/entities/npc/sprites/penguin_talk.png" id="19_s83wq"]
+[ext_resource type="PackedScene" uid="uid://b2gn8d730cuml" path="res://worlds/island/managers/time_setter.tscn" id="20_0nv64"]
+
+[sub_resource type="Resource" id="Resource_11tdb"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Hello!", "Welcome to T1D Learning Camp!", "My name is Dr. Robot!", "Follow the red arrow to the schoolhouse to the left where we can do some introductions!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_edtnp"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["What are you still doing here? Head up to the schoolhouse!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_ecbgg"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Now that we've introduced ourselves, let's do some learning!", "Follow the red arrow over to the dining hall!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_o8ttq"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["I'll see you in the dining hall!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_5tavh"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Hello! Welcome to T1D Learning Camp.", "My name is Dr. Robot. It's nice to meet you!", "Follow the red arrow to the schoolhouse for our first lesson!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_sirg4"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["I'll see you in the schoolhouse!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_sb1ep"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Nice job learning!", "Head over to the dining hall!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_3pptb"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["I'll see you in the dining hall!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_j3pqi"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Now let's do some practice with rocket and train food!", "Head up to the cabins!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_6vlw2"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["See you there!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_ix0mj"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Nice job fighting those symptoms!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_lvnk7"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["See you next time!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_s63g6"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Looks like it's time for bed!", "Head up to the cabins!", "Goodnight!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_p8ksa"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Goodnight!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_fr6xj"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Good morning!", "I'll let you explore a bit on your own now.", "Keep following the red arrows when you're ready to keep learning!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_koryj"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["See you in a bit!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_2cg7r"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Good morning!", "Looks like we've reached the end of our time at T1D Learning Camp.", "That was a lot of fun!", "Goodbye!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_h0ppp"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Nice job at camp! Goodbye!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_51m77"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Hi! It's nice to meet you!", "I just finished my lesson on rocket and train food. Maybe you'll learn about them soon!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_ojbso"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["I'll see you around!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_gdp82"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Getting pretty late out!", "I'll see you tomorrow. Goodnight!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_jdvmv"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Goodnight!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_ifut4"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["Hello! I'm Penguin.", "I have type 1 diabetes too!", "I'll see you later!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[sub_resource type="Resource" id="Resource_r1jd3"]
+script = ExtResource("5_yjk4h")
+dialog = Array[String](["See you later!"])
+bedrock_calls = Array[ExtResource("6_da4w7")]([])
+
+[node name="IslandWorld" type="Node2D" node_paths=PackedStringArray("target_order", "demo_target_order") groups=["island_world"]]
+y_sort_enabled = true
+script = ExtResource("1_sq0gj")
+target_order = [NodePath("NPCs/DrRobot"), NodePath("Portals/Schoolhouse"), NodePath("NPCs/DrRobot1"), NodePath("Portals/DiningHall"), NodePath("NPCs/DrRobot2"), NodePath("Portals/Cabin"), NodePath("NPCs/DrRobot3"), NodePath("Portals/Schoolhouse"), NodePath("Portals/Sorting"), NodePath("Portals/DiningHall"), NodePath("Portals/Sorting"), NodePath("Portals/Cabin"), NodePath("Portals/Schoolhouse"), NodePath("Portals/Sorting"), NodePath("Portals/Schoolhouse"), NodePath("Portals/Arcade"), NodePath("Portals/Sorting"), NodePath("Portals/Cabin"), NodePath("NPCs/DrRobot4")]
+demo_target_order = [NodePath("NPCs/DrRobotDemo"), NodePath("NPCs/Cat"), NodePath("Portals/Schoolhouse"), NodePath("NPCs/DrRobotDemo1"), NodePath("Portals/DiningHall"), NodePath("NPCs/Penguin"), NodePath("NPCs/DrRobotDemo2"), NodePath("TimeSetters/Sunset"), NodePath("Portals/Sorting"), NodePath("NPCs/Cat1"), NodePath("TimeSetters/Night"), NodePath("Portals/Cabin"), NodePath("NPCs/DrRobot3"), NodePath("Portals/Sorting"), NodePath("Portals/Arcade"), NodePath("TimeSetters/Sunset"), NodePath("NPCs/DrRobotDemo3")]
+use_demo = true
+
+[node name="UI" type="CanvasLayer" parent="." groups=["island_ui"]]
+script = ExtResource("4_gj0oh")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI" groups=["island_ui"]]
+self_modulate = Color(0.18, 0.18, 0.18, 1)
+custom_minimum_size = Vector2(440, 0)
+offset_left = 20.0
+offset_top = 1204.0
+offset_right = 460.0
+offset_bottom = 1460.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("4_rcmdp")
+region_rect = Rect2(0, 0, 768, 768)
+patch_margin_left = 128
+patch_margin_top = 128
+patch_margin_right = 128
+patch_margin_bottom = 128
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="PromptLabel" type="RichTextLabel" parent="UI/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("5_wqfb3")
+theme_override_font_sizes/normal_font_size = 80
+text = "Press Space"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TimeManager" type="CanvasModulate" parent="."]
+script = ExtResource("1_pa2g2")
+sunrise = Color(1, 0.87, 0.974, 1)
+day = Color(1, 1, 1, 1)
+sunset = Color(1, 0.8, 0.96, 1)
+dusk = Color(0.676458, 0.5525, 0.85, 1)
+night = Color(0.53, 0.45, 0.75, 1)
+
+[node name="Ocean" type="ColorRect" parent="."]
+z_index = -1000
+offset_left = -4040.0
+offset_top = -3395.0
+offset_right = 4416.0
+offset_bottom = 3501.0
+color = Color(0.034, 0.5236, 0.85, 1)
+
+[node name="Environment" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Island" parent="Environment" instance=ExtResource("6_nug6c")]
+
+[node name="Paths" parent="Environment/Island" instance=ExtResource("7_nqvby")]
+
+[node name="DockShadow" type="Sprite2D" parent="Environment/Island"]
+modulate = Color(0.023, 0.124967, 0.46, 0.627451)
+position = Vector2(58, 2516)
+rotation = 1.5708
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("15_4mkdy")
+
+[node name="Trees" type="Node2D" parent="Environment"]
+y_sort_enabled = true
+
+[node name="Tree" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-326, 903)
+
+[node name="Tree2" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-431, 941)
+
+[node name="Tree3" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-389, 834)
+
+[node name="Tree4" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-487, 1559)
+
+[node name="Tree82" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1071, 751)
+
+[node name="Tree9" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-428, 1478)
+
+[node name="Tree10" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-436, 1354)
+
+[node name="Tree13" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-738, 1258)
+
+[node name="Tree14" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-756, 1421)
+
+[node name="Tree17" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-512, 1654)
+
+[node name="Tree18" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-394, 1673)
+
+[node name="Tree19" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-371, 1267)
+
+[node name="Tree41" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(130, 1589)
+
+[node name="Tree42" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(214, 1683)
+
+[node name="Tree43" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(254, 1620)
+
+[node name="Tree44" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(402, 1501)
+
+[node name="Tree45" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(376, 1632)
+
+[node name="Tree46" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(603, 1677)
+
+[node name="Tree47" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(515, 1575)
+
+[node name="Tree48" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(628, 1459)
+
+[node name="Tree49" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(668, 1491)
+
+[node name="Tree50" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(808, 1576)
+
+[node name="Tree51" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(736, 1682)
+
+[node name="Tree52" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(887, 1443)
+
+[node name="Tree53" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(848, 1530)
+
+[node name="Tree54" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(897, 1575)
+
+[node name="Tree55" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(860, 1693)
+
+[node name="Tree56" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1032, 1478)
+
+[node name="Tree57" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1010, 1614)
+
+[node name="Tree58" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1166, 1373)
+
+[node name="Tree59" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1152, 1600)
+
+[node name="Tree60" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1120, 1503)
+
+[node name="Tree61" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1268, 1495)
+
+[node name="Tree62" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1294, 1351)
+
+[node name="Tree63" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-6, 1293)
+
+[node name="Tree64" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(57, 1191)
+
+[node name="Tree65" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1, 1086)
+
+[node name="Tree66" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(76, 978)
+
+[node name="Tree67" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(166, 1087)
+
+[node name="Tree68" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(166, 1299)
+
+[node name="Tree69" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(175, 1194)
+
+[node name="Tree70" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(350, 1213)
+
+[node name="Tree71" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(308, 1123)
+
+[node name="Tree20" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-834, 1629)
+
+[node name="Tree21" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-830, 1347)
+
+[node name="Tree22" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-914, 1518)
+
+[node name="Tree23" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-367, 1490)
+
+[node name="Tree24" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1346, 1320)
+
+[node name="Tree25" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1242, 1390)
+
+[node name="Tree26" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1337, 1444)
+
+[node name="Tree27" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1199, 1452)
+
+[node name="Tree28" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1243, 1533)
+
+[node name="Tree29" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1201, 1329)
+
+[node name="Tree30" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1092, 1406)
+
+[node name="Tree31" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-991, 1299)
+
+[node name="Tree32" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-980, 1408)
+
+[node name="Tree33" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1109, 1574)
+
+[node name="Tree34" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-999, 1569)
+
+[node name="Tree85" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-591, -1163)
+
+[node name="Tree88" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-567, -1293)
+
+[node name="Tree89" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1008, -1370)
+
+[node name="Tree90" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-824, -1376)
+
+[node name="Tree92" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-926, -1231)
+
+[node name="Tree93" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1023, -1171)
+
+[node name="Tree98" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-891, -1482)
+
+[node name="Tree122" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-689, -1510)
+
+[node name="Tree123" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-708, -1427)
+
+[node name="Tree124" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-629, -1550)
+
+[node name="Tree125" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-435, -1536)
+
+[node name="Tree126" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-564, -1408)
+
+[node name="Tree127" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-589, -1470)
+
+[node name="Tree128" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-360, -1156)
+
+[node name="Tree129" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1206, 788)
+
+[node name="Tree130" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1287, 918)
+
+[node name="Tree131" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1336, 1006)
+
+[node name="Tree132" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1403, 987)
+
+[node name="Tree133" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1473, 1084)
+
+[node name="Tree134" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1568, 1079)
+
+[node name="Tree135" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1498, 977)
+
+[node name="Tree136" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1433, 931)
+
+[node name="Tree137" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1377, 690)
+
+[node name="Tree138" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1298, 762)
+
+[node name="Tree139" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1245, 676)
+
+[node name="Tree140" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1254, 630)
+
+[node name="Tree141" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1321, 560)
+
+[node name="Tree142" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1499, 764)
+
+[node name="Tree143" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1117, 729)
+
+[node name="Tree144" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1041, 778)
+
+[node name="Tree145" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1041, 611)
+
+[node name="Tree146" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1138, 528)
+
+[node name="Tree147" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1576, 829)
+
+[node name="Tree148" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1523, 685)
+
+[node name="Tree149" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-899, 835)
+
+[node name="Tree182" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-843, 879)
+
+[node name="Tree150" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-751, 641)
+
+[node name="Tree151" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-732, 551)
+
+[node name="Tree152" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-790, 507)
+
+[node name="Tree153" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1271, 253)
+
+[node name="Tree154" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1328, 316)
+
+[node name="Tree99" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-926, -1356)
+
+[node name="Tree100" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-768, -1263)
+
+[node name="Tree101" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-805, -1188)
+
+[node name="Tree102" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-899, -1144)
+
+[node name="Tree103" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-672, -1331)
+
+[node name="Tree104" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-466, -1365)
+
+[node name="Tree105" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-317, -1325)
+
+[node name="Tree106" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-196, -1239)
+
+[node name="Tree107" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-659, -1465)
+
+[node name="Tree108" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-529, -1590)
+
+[node name="Tree109" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-806, -1513)
+
+[node name="Tree110" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-356, -1463)
+
+[node name="Tree111" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(347, -1282)
+
+[node name="Tree112" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(447, -1341)
+
+[node name="Tree113" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(399, -1363)
+
+[node name="Tree114" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(462, -1559)
+
+[node name="Tree115" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(599, -1714)
+
+[node name="Tree116" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(747, -1629)
+
+[node name="Tree117" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1069, -338)
+
+[node name="Tree118" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(577, -356)
+
+[node name="Tree119" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(340, -38)
+
+[node name="Tree120" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-75, 228)
+
+[node name="Tree121" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-30, 161)
+
+[node name="Tree35" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1040, 1674)
+
+[node name="Tree36" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1478, 1174)
+
+[node name="Tree37" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1524, 1301)
+
+[node name="Tree38" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1524, 1457)
+
+[node name="Tree39" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1338, 1150)
+
+[node name="Tree72" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(45, 817)
+
+[node name="Tree73" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(200, 904)
+
+[node name="Tree83" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-381, -43)
+
+[node name="Tree84" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-432, -62)
+
+[node name="Tree86" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1544, 200)
+
+[node name="Tree87" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1644, 293)
+
+[node name="Tree91" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1644, 221)
+
+[node name="Tree94" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1822, 622)
+
+[node name="Tree95" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1755, 745)
+
+[node name="Tree96" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(397, -1108)
+
+[node name="Tree97" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(749, -1303)
+
+[node name="Tree155" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(851, -1224)
+
+[node name="Tree156" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(851, -1363)
+
+[node name="Tree157" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1222, -1134)
+
+[node name="Tree158" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1349, -1071)
+
+[node name="Tree159" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1328, -1127)
+
+[node name="Tree160" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(438, 986)
+
+[node name="Tree161" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(494, 1049)
+
+[node name="Tree74" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(237, 976)
+
+[node name="Tree75" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(303, 816)
+
+[node name="Tree76" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(361, 705)
+
+[node name="Tree77" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(157, 767)
+
+[node name="Tree162" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(720, 303)
+
+[node name="Tree163" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(736, 523)
+
+[node name="Tree164" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(972, 432)
+
+[node name="Tree165" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(756, 117)
+
+[node name="Tree166" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(929, 78)
+
+[node name="Tree167" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(709, -13)
+
+[node name="Tree168" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1236, 196)
+
+[node name="Tree169" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1039, 157)
+
+[node name="Tree170" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(921, 31)
+
+[node name="Tree171" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1590, 425)
+
+[node name="Tree172" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1452, 519)
+
+[node name="Tree173" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1487, 779)
+
+[node name="Tree174" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1597, 665)
+
+[node name="Tree175" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1632, 952)
+
+[node name="Tree176" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1652, 826)
+
+[node name="Tree177" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1813, 692)
+
+[node name="Tree178" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1722, 527)
+
+[node name="Tree179" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1872, 472)
+
+[node name="Tree180" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1742, 1102)
+
+[node name="Tree181" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(1286, 1480)
+
+[node name="Tree78" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(83, 677)
+
+[node name="Tree79" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(254, 665)
+
+[node name="Tree80" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(155, 580)
+
+[node name="Tree81" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(243, 529)
+
+[node name="Tree40" parent="Environment/Trees" instance=ExtResource("4_aqqul")]
+position = Vector2(-1592, 1253)
+
+[node name="Evergreen11" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(413, 850)
+
+[node name="Evergreen12" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(360, 914)
+
+[node name="Evergreen13" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(512, 928)
+
+[node name="Evergreen14" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(547, 1026)
+
+[node name="Evergreen15" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(388, 1010)
+
+[node name="Evergreen16" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(463, 1139)
+
+[node name="Evergreen17" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(567, 1189)
+
+[node name="Evergreen18" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(642, 1147)
+
+[node name="Evergreen19" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(742, 1169)
+
+[node name="Evergreen20" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1139, -954)
+
+[node name="Evergreen21" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1139, -954)
+
+[node name="Evergreen22" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1046, -1034)
+
+[node name="Evergreen23" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(917, -998)
+
+[node name="Evergreen24" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(963, -1071)
+
+[node name="Evergreen25" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(794, -1030)
+
+[node name="Evergreen26" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(858, -1147)
+
+[node name="Evergreen27" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1007, -1286)
+
+[node name="Evergreen28" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(999, -1203)
+
+[node name="Evergreen29" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1282, -1370)
+
+[node name="Evergreen30" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1170, -1197)
+
+[node name="Evergreen31" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1311, -1148)
+
+[node name="Evergreen32" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1301, -1043)
+
+[node name="Evergreen33" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1409, -945)
+
+[node name="Evergreen34" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1477, -1175)
+
+[node name="Evergreen35" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1396, -1244)
+
+[node name="Evergreen36" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1514, -936)
+
+[node name="Evergreen37" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1553, -1060)
+
+[node name="Evergreen38" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1440, -1361)
+
+[node name="Evergreen39" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1120, -1369)
+
+[node name="Evergreen40" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1161, -1472)
+
+[node name="Evergreen41" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(650, -1132)
+
+[node name="Evergreen42" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(552, -1044)
+
+[node name="Evergreen43" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(770, -1215)
+
+[node name="Evergreen44" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(477, -1232)
+
+[node name="Evergreen45" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(624, -1320)
+
+[node name="Evergreen46" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(885, -1306)
+
+[node name="Evergreen47" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(992, -1457)
+
+[node name="Evergreen48" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(777, -1440)
+
+[node name="Evergreen49" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(867, -1558)
+
+[node name="Evergreen50" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(640, -1531)
+
+[node name="Evergreen51" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1474, -758)
+
+[node name="Evergreen146" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(545, 1580)
+
+[node name="Evergreen147" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(655, 1659)
+
+[node name="Evergreen148" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(360, 1722)
+
+[node name="Evergreen149" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-415, 1635)
+
+[node name="Evergreen150" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-946, 1521)
+
+[node name="Evergreen151" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1044, 1482)
+
+[node name="Evergreen152" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-938, 1384)
+
+[node name="Evergreen153" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(601, 1632)
+
+[node name="Evergreen154" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1030, 1695)
+
+[node name="Evergreen155" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1333, 1518)
+
+[node name="Evergreen156" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1364, 1427)
+
+[node name="Evergreen157" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1667, 884)
+
+[node name="Evergreen158" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1403, 597)
+
+[node name="Evergreen159" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(2154, 541)
+
+[node name="Evergreen160" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1922, 895)
+
+[node name="Evergreen161" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1237, -974)
+
+[node name="Evergreen162" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(411, -887)
+
+[node name="Evergreen163" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(871, -446)
+
+[node name="Evergreen164" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1505, -312)
+
+[node name="Evergreen165" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1289, -60)
+
+[node name="Evergreen166" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-911, -1225)
+
+[node name="Evergreen167" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-817, -1331)
+
+[node name="Evergreen52" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1589, -812)
+
+[node name="Evergreen53" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1713, -831)
+
+[node name="Evergreen54" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1625, -606)
+
+[node name="Evergreen55" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1889, -476)
+
+[node name="Evergreen56" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1459, -417)
+
+[node name="Evergreen57" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(417, -378)
+
+[node name="Evergreen121" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(155, 1107)
+
+[node name="Evergreen122" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(229, 794)
+
+[node name="Evergreen123" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(106, 713)
+
+[node name="Evergreen124" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(968, 827)
+
+[node name="Evergreen125" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1106, 886)
+
+[node name="Evergreen126" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1189, 815)
+
+[node name="Evergreen127" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1342, 839)
+
+[node name="Evergreen128" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1299, 705)
+
+[node name="Evergreen129" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1079, 650)
+
+[node name="Evergreen130" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(933, 563)
+
+[node name="Evergreen131" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1000, 461)
+
+[node name="Evergreen132" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(791, 394)
+
+[node name="Evergreen133" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(708, 595)
+
+[node name="Evergreen134" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(684, 465)
+
+[node name="Evergreen135" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(621, 465)
+
+[node name="Evergreen136" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(601, 276)
+
+[node name="Evergreen137" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(432, 185)
+
+[node name="Evergreen138" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(601, 150)
+
+[node name="Evergreen139" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(916, 217)
+
+[node name="Evergreen140" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1156, 359)
+
+[node name="Evergreen141" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1223, 564)
+
+[node name="Evergreen142" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1062, 548)
+
+[node name="Evergreen143" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1341, 347)
+
+[node name="Evergreen144" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1113, 209)
+
+[node name="Evergreen145" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1412, 469)
+
+[node name="Evergreen58" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(52, -547)
+
+[node name="Evergreen59" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-2, -437)
+
+[node name="Evergreen60" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(622, -437)
+
+[node name="Evergreen61" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(981, -308)
+
+[node name="Evergreen62" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1886, -105)
+
+[node name="Evergreen63" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1808, -254)
+
+[node name="Evergreen64" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(1706, -489)
+
+[node name="Evergreen65" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(364, -1029)
+
+[node name="Evergreen75" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1206, 501)
+
+[node name="Evergreen76" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1271, 425)
+
+[node name="Evergreen77" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1429, 101)
+
+[node name="Evergreen78" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1327, 217)
+
+[node name="Evergreen79" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1417, 201)
+
+[node name="Evergreen80" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1600, 433)
+
+[node name="Evergreen81" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1459, 426)
+
+[node name="Evergreen82" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1501, 322)
+
+[node name="Evergreen83" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1621, 257)
+
+[node name="Evergreen84" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1776, 331)
+
+[node name="Evergreen85" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1776, 516)
+
+[node name="Evergreen86" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1767, 444)
+
+[node name="Evergreen87" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1596, 460)
+
+[node name="Evergreen88" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1564, 608)
+
+[node name="Evergreen89" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1789, 650)
+
+[node name="Evergreen90" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1694, 511)
+
+[node name="Evergreen91" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1664, 576)
+
+[node name="Evergreen92" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1669, 632)
+
+[node name="Evergreen93" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1618, 651)
+
+[node name="Evergreen94" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1759, 790)
+
+[node name="Evergreen95" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1824, 869)
+
+[node name="Evergreen96" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1826, 769)
+
+[node name="Evergreen97" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1668, 818)
+
+[node name="Evergreen98" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1675, 899)
+
+[node name="Evergreen99" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1406, 846)
+
+[node name="Evergreen100" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1550, 890)
+
+[node name="Evergreen101" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1450, 1020)
+
+[node name="Evergreen102" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1230, 712)
+
+[node name="Evergreen103" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1906, 564)
+
+[node name="Evergreen104" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1871, 126)
+
+[node name="Evergreen105" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1964, 304)
+
+[node name="Evergreen106" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1885, 1062)
+
+[node name="Evergreen107" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1498, 1182)
+
+[node name="Evergreen108" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1653, 72)
+
+[node name="Evergreen109" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1514, -30)
+
+[node name="Evergreen110" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1678, -127)
+
+[node name="Evergreen111" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1375, 3)
+
+[node name="Evergreen112" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1264, 130)
+
+[node name="Evergreen113" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-1183, -30)
+
+[node name="Evergreen114" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-794, -5)
+
+[node name="Evergreen115" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-729, 71)
+
+[node name="Evergreen116" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-722, 15)
+
+[node name="Evergreen117" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-400, -191)
+
+[node name="Evergreen118" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-463, -108)
+
+[node name="Evergreen119" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-308, -217)
+
+[node name="Evergreen120" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-317, -106)
+
+[node name="Evergreen66" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(247, -833)
+
+[node name="Evergreen67" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(244, -965)
+
+[node name="Evergreen68" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-45, -767)
+
+[node name="Evergreen69" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-130, -615)
+
+[node name="Evergreen70" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-186, -776)
+
+[node name="Evergreen71" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(235, -1187)
+
+[node name="Evergreen72" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(203, -1512)
+
+[node name="Evergreen73" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-311, -1185)
+
+[node name="Evergreen74" parent="Environment/Trees" instance=ExtResource("5_121rr")]
+position = Vector2(-453, -1252)
+
+[node name="ForestBoundries" type="Node2D" parent="Environment"]
+
+[node name="ForestBoundry" parent="Environment/ForestBoundries" instance=ExtResource("8_f44cs")]
+position = Vector2(-774, 1214)
+polygon = PackedVector2Array(-717, -53, -562, -67, -379, 91, 77, 62, 275, 153, 408, 49, 423, 280, 409, 481, 233, 461, 152, 357, -66, 437, -161, 345, -284, 483, -333, 376, -618, 251, -753, 257, -733, 166, -852, 44)
+
+[node name="ForestBoundry2" parent="Environment/ForestBoundries" instance=ExtResource("8_f44cs")]
+position = Vector2(243, 869)
+polygon = PackedVector2Array(-200, -73, -117, -243, 0, -364, 181, -30, 523, 313, -7, 339, -83, 425, -253, 422, -187, 118)
+
+[node name="ForestBoundry3" parent="Environment/ForestBoundries" instance=ExtResource("8_f44cs")]
+polygon = PackedVector2Array(-966, -1508, -516, -1660, -254, -1325, -319, -1151, -634, -1354, -808, -1165, -1042, -1289)
+
+[node name="ForestBoundry4" parent="Environment/ForestBoundries" instance=ExtResource("8_f44cs")]
+polygon = PackedVector2Array(271, -1212, 828, -1538, 1465, -1453, 1510, -935, 669, -1064, 288, -882)
+
+[node name="ForestBoundry5" parent="Environment/ForestBoundries" instance=ExtResource("8_f44cs")]
+polygon = PackedVector2Array(-1861, 478, -1501, -72, -1219, -67, -1295, 295, -1157, 729, -1441, 893, -1804, 854)
+
+[node name="Rivers" type="Node2D" parent="Environment"]
+
+[node name="River" parent="Environment/Rivers" instance=ExtResource("10_dcand")]
+position = Vector2(-255, -490)
+points = PackedVector2Array(-37, -48, 183, 279, 475, 314, 921, 292, 1309, 359, 1592, 435, 1859, 577, 2204, 680, 2535, 769, 2883, 835)
+default_color = Color(0.034, 0.5236, 0.85, 1)
+
+[node name="River2" parent="Environment/Rivers" instance=ExtResource("10_dcand")]
+position = Vector2(-103, -204)
+points = PackedVector2Array(9, -11, -113, 236, -429, 431, -493, 739, -476, 1282, -572, 1867, -688, 2477)
+default_color = Color(0.034, 0.5236, 0.85, 1)
+
+[node name="RiverFoam" parent="Environment/Rivers" instance=ExtResource("10_dcand")]
+position = Vector2(-255, -490)
+points = PackedVector2Array(87, -11, 156, 128, 231, 208, 363, 235, 605, 248, 775, 234, 917, 209, 1066, 261, 1274, 269, 1456, 303, 1636, 378, 1766, 429, 1861, 489, 2050, 572, 2131, 586, 2299, 631, 2463, 654, 2562, 666)
+particles_spacing = 40
+foam = true
+
+[node name="RiverFoam2" parent="Environment/Rivers" instance=ExtResource("10_dcand")]
+position = Vector2(-183, -202)
+points = PackedVector2Array(4, -20, -26, 84, -67, 180, -116, 223, -202, 257, -344, 327, -403, 383, -466, 502, -504, 594, -506, 682, -493, 739, -500, 871, -481, 995, -474, 1095, -476, 1177, -476, 1282, -490, 1403, -489, 1492, -501, 1618, -536, 1751, -584, 1863, -605, 1925)
+particles_spacing = 40
+foam = true
+
+[node name="RiverFoam3" parent="Environment/Rivers" instance=ExtResource("10_dcand")]
+position = Vector2(-31, -151)
+points = PackedVector2Array(4, -20, -25, 87, -68, 183, -116, 223, -216, 288, -336, 354, -417, 413, -486, 485, -504, 594, -506, 682, -514, 753, -509, 854, -481, 916, -481, 995, -485, 1102, -476, 1177, -476, 1282, -490, 1403, -489, 1492, -501, 1618, -536, 1751, -545, 1837, -560, 1905)
+particles_spacing = 40
+foam = true
+
+[node name="WaterBoundries" type="StaticBody2D" parent="Environment/Rivers"]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Rivers/WaterBoundries"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-269, -474, -243, -487, -190, -498, -164, -496, -126, -475, -94, -423, -55, -369, -28, -331, 35, -320, 102, -303, 88, -175, 16, -187, -24, -183, -38, -178, -55, -93, -100, -9, -182, 95, -279, 146, -454, 248, -516, 314, -544, 377, -553, 455, -551, 519, -554, 587, -540, 666, -525, 710, -515, 809, -518, 990, -648, 990, -655, 959, -652, 862, -668, 758, -680, 668, -669, 595, -687, 464, -690, 426, -673, 345, -651, 293, -609, 182, -595, 147, -563, 112, -501, 74, -430, 49, -305, -24, -274, -30, -230, -75, -217, -130, -198, -185, -185, -219, -181, -251, -198, -304, -229, -341, -233, -360, -276, -414, -289, -447, -285, -470)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Environment/Rivers/WaterBoundries"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-660, 1133, -521, 1135, -519, 1188, -529, 1328, -535, 1371, -554, 1519, -575, 1643, -605, 1755, -601, 1811, -609, 1910, -618, 2054, -616, 2189, -597, 2316, -1001, 2268, -981, 2219, -951, 2207, -910, 2150, -861, 2014, -834, 1926, -800, 1769, -774, 1683, -737, 1581, -720, 1539, -697, 1474, -677, 1399, -681, 1333, -677, 1295, -669, 1241, -672, 1218)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Environment/Rivers/WaterBoundries"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(292, -279, 474, -286, 596, -298, 648, -311, 712, -300, 823, -264, 1017, -240, 1128, -236, 1219, -210, 1398, -149, 1501, -93, 1594, -36, 1715, 33, 1794, 65, 1840, 69, 1951, 100, 2057, 120, 2138, 123, 2259, 160, 2350, 183, 2405, 204, 2498, 224, 2591, 234, 2702, 281, 2693, 473, 2634, 475, 2619, 470, 2594, 443, 2450, 389, 2338, 366, 2234, 332, 2065, 276, 1939, 246, 1698, 179, 1531, 132, 1408, 87, 1301, 30, 1105, -38, 980, -91, 884, -121, 734, -143, 539, -156, 454, -152, 313, -143, 272, -147)
+
+[node name="Lake" type="CollisionPolygon2D" parent="Environment/Rivers/WaterBoundries"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-1267, -866, -1279, -832, -1325, -768, -1331, -735, -1320, -684, -1312, -624, -1298, -587, -1263, -559, -1173, -535, -995, -499, -846, -453, -771, -427, -641, -405, -505, -399, -417, -405, -341, -430, -313, -424, -260, -396, -181, -505, -194, -532, -262, -601, -286, -679, -330, -790, -347, -825, -361, -888, -397, -948, -484, -999, -573, -1030, -654, -1028, -780, -1015, -985, -968, -1078, -949, -1142, -922, -1217, -899)
+
+[node name="Ocean" type="CollisionPolygon2D" parent="Environment/Rivers/WaterBoundries"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-811, 2254, -977, 2218, -1109, 2193, -1391, 2101, -1526, 2042, -1872, 1810, -2273, 1522, -2449, 1309, -2567, 1045, -2591, 804, -2529, 506, -2409, 241, -2199, -68, -2055, -274, -1964, -519, -1915, -693, -1810, -932, -1736, -1141, -1617, -1479, -1488, -1839, -1424, -1971, -1255, -2156, -1116, -2242, -810, -2361, -579, -2400, -409, -2405, -206, -2347, -27, -2233, 93, -2206, 352, -2165, 768, -2095, 1302, -1936, 1558, -1819, 1768, -1685, 1944, -1507, 2020, -1388, 2110, -1129, 2147, -934, 2172, -813, 2241, -646, 2350, -431, 2432, -285, 2530, -5, 2580, 189, 2607, 406, 2633, 592, 2616, 720, 2570, 1055, 2524, 1201, 2439, 1382, 2332, 1524, 2245, 1634, 2137, 1740, 1976, 1841, 1855, 1908, 1690, 1953, 1142, 2104, 808, 2164, 612, 2231, 307, 2327, 178, 2352, 178, 2587, -47, 2586, -44, 2352, -443, 2339, -584, 2307, -777, 2262, -739, 3346, 3049, 2147, 2948, -311, 1699, -2377, -991, -2689, -2392, -1369, -3067, 1391, -2029, 2540, -1042, 2681)
+
+[node name="BridgeShadow" type="Sprite2D" parent="Environment/Rivers"]
+modulate = Color(0.023, 0.124967, 0.46, 0.54902)
+z_index = -600
+position = Vector2(-582, 1114)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_4mkdy")
+
+[node name="BridgeShadow2" type="Sprite2D" parent="Environment/Rivers"]
+modulate = Color(0.0235294, 0.12549, 0.458824, 0.54902)
+z_index = -600
+position = Vector2(225, -164)
+rotation = -1.45559
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_4mkdy")
+
+[node name="NPCs" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="DrRobot" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(-38, 1493)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_11tdb"), SubResource("Resource_edtnp")])
+concurrent = true
+
+[node name="DrRobot1" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(-756, 922)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_ecbgg"), SubResource("Resource_o8ttq")])
+concurrent = true
+
+[node name="DrRobotDemo" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(-105, 1194)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_5tavh"), SubResource("Resource_sirg4")])
+concurrent = true
+
+[node name="DrRobotDemo1" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(-756, 922)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_sb1ep"), SubResource("Resource_3pptb")])
+concurrent = true
+
+[node name="DrRobotDemo2" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(1010, 1057)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_j3pqi"), SubResource("Resource_6vlw2")])
+concurrent = true
+
+[node name="DrRobotDemo3" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(-994, 164)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_ix0mj"), SubResource("Resource_lvnk7")])
+concurrent = true
+
+[node name="DrRobot2" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(987, 1036)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_s63g6"), SubResource("Resource_p8ksa")])
+concurrent = true
+
+[node name="DrRobot3" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(1194, -763)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_fr6xj"), SubResource("Resource_koryj")])
+concurrent = true
+
+[node name="DrRobot4" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(819, -808)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_2cg7r"), SubResource("Resource_h0ppp")])
+concurrent = true
+
+[node name="Cat" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(-259, 942)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_51m77"), SubResource("Resource_ojbso")])
+npc_sprite = ExtResource("16_2rlkg")
+npc_sprite_talking = ExtResource("17_kqbn4")
+tts_voice = 6
+concurrent = true
+
+[node name="Cat1" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(377, -828)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_gdp82"), SubResource("Resource_jdvmv")])
+npc_sprite = ExtResource("16_2rlkg")
+npc_sprite_talking = ExtResource("17_kqbn4")
+tts_voice = 6
+concurrent = true
+
+[node name="Penguin" parent="NPCs" instance=ExtResource("7_081h4")]
+position = Vector2(238, 185)
+conversations = Array[ExtResource("5_yjk4h")]([SubResource("Resource_ifut4"), SubResource("Resource_r1jd3")])
+npc_sprite = ExtResource("18_o4vo5")
+npc_sprite_talking = ExtResource("19_s83wq")
+tts_voice = 13
+concurrent = true
+
+[node name="Portals" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Arcade" parent="Portals" instance=ExtResource("8_iet5n")]
+position = Vector2(-798, 149)
+destination_world = "space"
+destination_data = Array[int]([1])
+dialog_text = "Enter the arcade!"
+
+[node name="Sorting" parent="Portals" instance=ExtResource("8_iet5n")]
+position = Vector2(675, -892)
+destination_world = "sorting"
+dialog_text = "Get sorting!"
+
+[node name="Cabin" parent="Portals" instance=ExtResource("8_iet5n")]
+position = Vector2(971, -831)
+destination_world = "cabin"
+dialog_text = "Enter the cabin!"
+
+[node name="Schoolhouse" parent="Portals" instance=ExtResource("17_gqohc")]
+position = Vector2(-1038, 910)
+
+[node name="DiningHall" parent="Portals" instance=ExtResource("18_hp118")]
+position = Vector2(1243, 1045)
+
+[node name="TimeSetters" type="Node2D" parent="."]
+
+[node name="Sunset" parent="TimeSetters" instance=ExtResource("20_0nv64")]
+time = "sunset"
+concurrent = true
+
+[node name="Night" parent="TimeSetters" instance=ExtResource("20_0nv64")]
+time = "Night"
+concurrent = true
+
+[node name="Surfaces" type="Node2D" parent="." groups=["surfaces"]]
+script = ExtResource("18_720yw")
+
+[node name="Path" type="Area2D" parent="Surfaces"]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Surfaces/Path"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(346, -735, 392, -744, 428, -729, 444, -690, 413, -631, 308, -445, 290, -353, 212, -4, 131, 283, 254, 287, 376, 354, 508, 513, 668, 753, 755, 859, 860, 990, 1012, 1200, 1331, 1127, 1421, 1115, 1501, 1140, 1501, 1194, 1396, 1217, 1035, 1285, 742, 1329, 548, 1382, 311, 1422, 20, 1475, -126, 1479, -135, 1502, -123, 1608, -103, 1646, -121, 1696, -198, 1697, -234, 1572, -246, 1376, -244, 1316, -250, 1158, -321, 1114, -499, 1105, -779, 1103, -1105, 1096, -1148, 1096, -1179, 1070, -1179, 1026, -1112, 990, -1030, 1007, -983, 1008, -894, 1005, -748, 1006, -501, 1004, -422, 1030, -236, 1033, -168, 866, -146, 769, -131, 716, -95, 582, -88, 486, -36, 405, 9, 215, 86, 16, 114, -125, 136, -420, 215, -624)
+
+[node name="Grass" type="Area2D" parent="Surfaces"]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Surfaces/Grass"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(94, 376, 63, 460, 24, 513, -6, 629, -34, 703, -121, 1021, -123, 1063, -159, 1147, -147, 1216, -141, 1368, -42, 1386, 94, 1366, 178, 1372, 322, 1325, 495, 1288, 705, 1247, 890, 1223, 735, 1018, 612, 844, 452, 653, 401, 555, 323, 465, 213, 396)
+
+[node name="Sand" type="Area2D" parent="Surfaces"]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Surfaces/Sand"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(2348, 367, 2394, 414, 2392, 537, 2401, 695, 2348, 829, 2293, 1030, 2226, 1167, 2211, 1238, 2134, 1333, 2086, 1440, 2030, 1486, 1869, 1592, 1594, 1687, 1399, 1727, 1304, 1751, 1097, 1727, 996, 1742, 899, 1773, 634, 1855, 362, 1873, 50, 1848, -199, 1816, -447, 1830, -798, 1788, -859, 1781, -1165, 1743, -1351, 1647, -1675, 1460, -1837, 1332, -1919, 1216, -1981, 1142, -2085, 873, -2104, 596, -2055, 351, -1941, 36, -1720, -378, -1668, -426, -1535, -442, -1443, -442, -1375, -426, -1153, -395, -774, -322, -435, -372, -296, -400, -207, -362, -246, -598, -268, -760, -270, -907, -313, -1031, -383, -1083, -464, -1101, -620, -1131, -706, -1131, -751, -1144, -919, -1113, -1021, -1095, -1070, -1111, -1099, -1171, -1113, -1271, -1127, -1379, -1104, -1494, -1011, -1579, -685, -1737, -439, -1787, 211, -1860, 405, -1876, 535, -1870, 761, -1851, 838, -1832, 1006, -1832, 1320, -1727, 1543, -1580, 1671, -1435, 1796, -1255, 1857, -1077, 1944, -749, 2025, -580, 2113, -447, 2196, -264, 2304, -39, 2365, 171, 2320, 245)
+
+[node name="Bridge" type="Area2D" parent="Surfaces"]
+collision_mask = 2
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Surfaces/Bridge"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-46, 2582, 178, 2584, 176, 1960, 151, 1960, 126, 1953, 95, 1955, 53, 1961, 11, 1961, -18, 1955, -40, 1960)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Surfaces/Bridge"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-674, 989, -501, 994, -508, 1130, -677, 1125)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Surfaces/Bridge"]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(110, -351, 86, -141, 267, -119, 295, -327)
+
+[node name="IslandPlayer" parent="." instance=ExtResource("1_2a6r7")]
+position = Vector2(67, 2484)
+move_speed = 350.0
+move_acceleration = 40.0
+move_friction = 60.0
+
+[node name="Effects" type="Node2D" parent="." groups=["effects"]]
+
+[connection signal="body_entered" from="Surfaces/Path" to="Surfaces" method="_on_path_body_entered"]
+[connection signal="body_exited" from="Surfaces/Path" to="Surfaces" method="_on_path_body_exited"]
+[connection signal="body_entered" from="Surfaces/Grass" to="Surfaces" method="_on_grass_body_entered"]
+[connection signal="body_exited" from="Surfaces/Grass" to="Surfaces" method="_on_grass_body_exited"]
+[connection signal="body_entered" from="Surfaces/Sand" to="Surfaces" method="_on_sand_body_entered"]
+[connection signal="body_exited" from="Surfaces/Sand" to="Surfaces" method="_on_sand_body_exited"]
+[connection signal="body_entered" from="Surfaces/Bridge" to="Surfaces" method="_on_bridge_body_entered"]
+[connection signal="body_exited" from="Surfaces/Bridge" to="Surfaces" method="_on_bridge_body_exited"]

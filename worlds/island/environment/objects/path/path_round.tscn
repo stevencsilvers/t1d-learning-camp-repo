@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cayd34heonhwe"]
+
+[ext_resource type="Texture2D" uid="uid://c24o1o66uigxl" path="res://worlds/island/environment/objects/path/path_round.png" id="1_ijif5"]
+
+[node name="PathRound" type="Node2D"]
+z_index = -40
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ijif5")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Symptom" load_steps=3 format=3 uid="uid://bxqtgvdx36ej2"]
+
+[ext_resource type="Script" path="res://global/symptoms/symptom.gd" id="1_jsue7"]
+[ext_resource type="Texture2D" uid="uid://us8075kdjepc" path="res://global/symptoms/sprites/sweating.png" id="2_h8xu8"]
+
+[resource]
+script = ExtResource("1_jsue7")
+name = "sweating a lot"
+sprite = ExtResource("2_h8xu8")
+high = false

@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://1gvcdekktc3l"]
+
+[ext_resource type="Script" path="res://worlds/island/entities/npc/npc.gd" id="1_ty0qu"]
+[ext_resource type="Shader" path="res://global/effects/shaders/outline.gdshader" id="2_anxhg"]
+[ext_resource type="PackedScene" uid="uid://ci2cv5dlrqdel" path="res://global/managers/dialog_manager.tscn" id="3_aiawx"]
+[ext_resource type="Texture2D" uid="uid://hnbn730dchc5" path="res://worlds/island/entities/npc/sprites/robotmini.png" id="3_cw835"]
+[ext_resource type="Texture2D" uid="uid://dergd86s25ao" path="res://worlds/island/entities/npc/sprites/robotmini_talk.png" id="3_e5eot"]
+[ext_resource type="PackedScene" uid="uid://xhh03hxqgeo3" path="res://global/managers/conversing_manager.tscn" id="4_htfmu"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="5_txu6b"]
+[ext_resource type="Script" path="res://global/resources/bedrock_call.gd" id="6_35jqa"]
+[ext_resource type="Texture2D" uid="uid://bpsdb41ag8pmi" path="res://global/effects/particles/sprites/puff.png" id="8_1iut5"]
+[ext_resource type="PackedScene" uid="uid://drebrnwixt3db" path="res://global/effects/code/rotate_sin_component.tscn" id="9_an770"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jf15n"]
+shader = ExtResource("2_anxhg")
+shader_parameter/show = false
+shader_parameter/line_color = Color(0.94, 0.92308, 0.8554, 1)
+shader_parameter/line_thickness = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_32jpj"]
+radius = 117.068
+
+[sub_resource type="Resource" id="Resource_k6rl7"]
+script = ExtResource("5_txu6b")
+dialog = Array[String](["Hi!", "I'm a dog.", "Woof woof", "Goodbye"])
+bedrock_calls = Array[ExtResource("6_35jqa")]([])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbgcx"]
+size = Vector2(36, 20)
+
+[node name="NPC" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ty0qu")
+npc_sprite = ExtResource("3_cw835")
+npc_sprite_talking = ExtResource("3_e5eot")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_jf15n")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_cw835")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, 108)
+shape = SubResource("CircleShape2D_32jpj")
+
+[node name="DialogManager" parent="." instance=ExtResource("3_aiawx")]
+visible = false
+position = Vector2(0, -204)
+
+[node name="ConversingManager" parent="." node_paths=PackedStringArray("dialog_manager") instance=ExtResource("4_htfmu")]
+dialog_manager = NodePath("../DialogManager")
+conversations = Array[ExtResource("5_txu6b")]([SubResource("Resource_k6rl7")])
+
+[node name="RotateSinComponent" parent="." instance=ExtResource("9_an770")]
+amplitude_mult = 0.05
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.1073, 0.348108, 0.37, 0.411765)
+z_index = -1
+position = Vector2(-3, 50)
+scale = Vector2(1.2, 0.9)
+texture = ExtResource("8_1iut5")
+
+[node name="TalkAnimTimer" type="Timer" parent="."]
+wait_time = 0.15
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 44)
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_mbgcx")
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
+[connection signal="text_ended" from="DialogManager" to="." method="_on_dialog_manager_text_ended"]
+[connection signal="text_started" from="DialogManager" to="." method="_on_dialog_manager_text_started"]
+[connection signal="timeout" from="TalkAnimTimer" to="." method="_on_talk_anim_timer_timeout"]

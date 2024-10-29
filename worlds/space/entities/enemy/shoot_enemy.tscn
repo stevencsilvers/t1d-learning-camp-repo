@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ro4cvwbsy56"]
+
+[ext_resource type="PackedScene" uid="uid://dfepyrxp7kag0" path="res://worlds/space/entities/enemy/space_enemy.tscn" id="1_fvwme"]
+[ext_resource type="PackedScene" uid="uid://cftdqdxawq74b" path="res://worlds/space/entities/enemy/enemy_components/shoot_component.tscn" id="2_inj46"]
+
+[node name="ShootEnemy" instance=ExtResource("1_fvwme")]
+
+[node name="ShootComponent" parent="." index="2" instance=ExtResource("2_inj46")]
+position = Vector2(-150, 2.08165e-12)

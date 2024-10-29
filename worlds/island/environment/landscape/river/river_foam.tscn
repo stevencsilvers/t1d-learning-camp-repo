@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5bvrxturkptl"]
+
+[ext_resource type="Texture2D" uid="uid://bu56m6cw2tfa6" path="res://global/effects/particles/sprites/dot.png" id="1_75x1l"]
+
+[sub_resource type="Gradient" id="Gradient_gv3f4"]
+offsets = PackedFloat32Array(0, 0.131455, 0.446009, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ldg0w"]
+gradient = SubResource("Gradient_gv3f4")
+
+[sub_resource type="Curve" id="Curve_xyjtc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.472676), -1.72744, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o6nlg"]
+curve = SubResource("Curve_xyjtc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_74k7m"]
+lifetime_randomness = 0.05
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_max = 360.0
+direction = Vector3(2.08165e-12, -1, 2.08165e-12)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+gravity = Vector3(2.08165e-12, 20, 2.08165e-12)
+scale_min = 0.75
+scale_curve = SubResource("CurveTexture_o6nlg")
+color_ramp = SubResource("GradientTexture1D_ldg0w")
+hue_variation_max = 2.08167e-17
+turbulence_noise_strength = 0.5
+turbulence_noise_scale = 3.0
+
+[node name="RiverParticles" type="GPUParticles2D"]
+z_index = 5
+amount = 1
+amount_ratio = 0.2
+process_material = SubResource("ParticleProcessMaterial_74k7m")
+texture = ExtResource("1_75x1l")
+lifetime = 2.0
+preprocess = 2.0
+randomness = 1.0

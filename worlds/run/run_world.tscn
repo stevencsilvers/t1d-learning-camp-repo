@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://doxi7di38xp17"]
+
+[ext_resource type="Texture2D" uid="uid://sqxa6d7jeip" path="res://icon.svg" id="1_bnar7"]
+[ext_resource type="Script" path="res://worlds/run/run_world.gd" id="1_my1dn"]
+[ext_resource type="Script" path="res://worlds/run/run_camera.gd" id="1_rjlit"]
+[ext_resource type="PackedScene" uid="uid://cwbysfgt2s6t8" path="res://worlds/run/entities/player/run_player.tscn" id="1_s1e2g"]
+[ext_resource type="Script" path="res://worlds/run/environment/run_map.gd" id="3_dipc6"]
+
+[node name="RunWorld" type="Node2D"]
+script = ExtResource("1_my1dn")
+
+[node name="RunCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(960, 540)
+ignore_rotation = false
+script = ExtResource("1_rjlit")
+player = NodePath("../RunPlayer")
+
+[node name="RunPlayer" parent="." instance=ExtResource("1_s1e2g")]
+
+[node name="Map" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_dipc6")
+player = NodePath("../RunPlayer")
+
+[node name="Icon" type="Sprite2D" parent="Map"]
+modulate = Color(0.34194, 0.34194, 0.34194, 1)
+z_index = -10
+position = Vector2(957, 533)
+scale = Vector2(10, 10)
+texture = ExtResource("1_bnar7")

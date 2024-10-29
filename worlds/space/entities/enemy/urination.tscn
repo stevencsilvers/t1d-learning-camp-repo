@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://daj7px1ikq5ts"]
+
+[ext_resource type="PackedScene" uid="uid://0ro4cvwbsy56" path="res://worlds/space/entities/enemy/shoot_enemy.tscn" id="1_3slgc"]
+[ext_resource type="Texture2D" uid="uid://8gvr4107pn4x" path="res://global/symptoms/sprites/peeing.png" id="2_8qbco"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6xyh"]
+radius = 115.017
+
+[node name="Urination" instance=ExtResource("1_3slgc")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_8qbco")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_y6xyh")

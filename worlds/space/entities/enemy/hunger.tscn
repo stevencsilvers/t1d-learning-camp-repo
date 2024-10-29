@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd0qsnito56gx"]
+
+[ext_resource type="PackedScene" uid="uid://dkts3055t0r1v" path="res://worlds/space/entities/enemy/follow_enemy.tscn" id="1_f33i0"]
+[ext_resource type="Texture2D" uid="uid://bx5d1sjtga02f" path="res://global/symptoms/sprites/hungry.png" id="2_rlwxq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvbfm"]
+radius = 106.042
+
+[node name="Hunger" instance=ExtResource("1_f33i0")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_rlwxq")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_kvbfm")

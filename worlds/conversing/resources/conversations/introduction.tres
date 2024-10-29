@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Conversation" load_steps=7 format=3 uid="uid://cu1kpe528bjvd"]
+
+[ext_resource type="Texture2D" uid="uid://utnuetkf5c7y" path="res://worlds/conversing/environment/backgrounds/classroom.png" id="1_k1bry"]
+[ext_resource type="Script" path="res://global/resources/bedrock_call.gd" id="1_kdpsj"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="2_ssumn"]
+
+[sub_resource type="Resource" id="Resource_y4lht"]
+script = ExtResource("1_kdpsj")
+model = "base"
+prompt = "(You are talking to a child.) (You just met the child, so ask any follow up questions if you want, but don't ask their favorite animal or color.) You: What's your name? Other: _. You: "
+length = 100
+temp = 0.8
+top_p = 0.8
+
+[sub_resource type="Resource" id="Resource_sedgj"]
+script = ExtResource("1_kdpsj")
+model = "base"
+prompt = "(You are talking to a child you just met. Please respond to them in a couple sentences. You can give some animal to be your favorite, for example.) You: What's your favorite animal? Other: _. You: "
+length = 100
+temp = 0.3
+top_p = 0.5
+
+[sub_resource type="Resource" id="Resource_veopp"]
+script = ExtResource("1_kdpsj")
+model = "base"
+prompt = "(You are talking to a child you just met. Please respond to them in a couple sentences. You can give a color to be your favorite, for example.) You: What's your favorite color? Other: _. You: "
+length = 100
+temp = 0.3
+top_p = 0.5
+
+[resource]
+script = ExtResource("2_ssumn")
+background = ExtResource("1_k1bry")
+dialog = Array[String](["Hello!", "Welcome to T1D Learning!", "My name is Dr. Robot. It's nice to meet you!", "Here, you'll learn all about what food choices you should make to stay healthy!", "First, let's do some introductions. What's your name?", "_", "^", "What's your favorite animal?", "_", "^", "How about your favorite color?", "_", "^", "Well, it was really nice to meet you.", "How about we go outside and I'll show you around!"])
+bedrock_calls = Array[ExtResource("1_kdpsj")]([SubResource("Resource_y4lht"), SubResource("Resource_sedgj"), SubResource("Resource_veopp")])

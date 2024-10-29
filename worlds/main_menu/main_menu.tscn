@@ -1,0 +1,203 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6hvbe1gbpcnj"]
+
+[ext_resource type="Script" path="res://worlds/main_menu/main_menu.gd" id="1_4etbd"]
+[ext_resource type="Texture2D" uid="uid://xmoqdv675otx" path="res://worlds/conversing/ui/icons/speak.png" id="2_1f6v4"]
+[ext_resource type="Texture2D" uid="uid://utnuetkf5c7y" path="res://worlds/conversing/environment/backgrounds/classroom.png" id="2_kj5e5"]
+[ext_resource type="Texture2D" uid="uid://b61atv862pcs1" path="res://worlds/conversing/ui/icons/speakp.png" id="3_wuml4"]
+[ext_resource type="Texture2D" uid="uid://8obi7t74s3cg" path="res://worlds/conversing/ui/icons/speakh.png" id="4_fn6ug"]
+[ext_resource type="Texture2D" uid="uid://wai65yag7fp3" path="res://worlds/conversing/entities/robot/robot.png" id="5_ugakv"]
+[ext_resource type="Texture2D" uid="uid://o42ct4pm3pbc" path="res://worlds/conversing/entities/dog/dog.png" id="6_blaf2"]
+[ext_resource type="Texture2D" uid="uid://dhdqy8q8jfjm0" path="res://worlds/main_menu/ui/logo.png" id="7_c71uj"]
+[ext_resource type="Texture2D" uid="uid://mk53dlkudpum" path="res://worlds/main_menu/ui/buttons/play.png" id="8_yd5yx"]
+[ext_resource type="Texture2D" uid="uid://b6q71ksdxep36" path="res://worlds/main_menu/ui/buttons/playp.png" id="9_7qhvj"]
+[ext_resource type="Texture2D" uid="uid://dhnx62lufdplp" path="res://worlds/main_menu/ui/buttons/playh.png" id="10_mghqq"]
+[ext_resource type="PackedScene" uid="uid://drebrnwixt3db" path="res://global/effects/code/rotate_sin_component.tscn" id="12_tqjvs"]
+[ext_resource type="FontFile" uid="uid://cj5mjr4g2f3yp" path="res://global/ui/fonts/PatrickHand-Regular.ttf" id="13_0n3o7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4etbd")
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Main"]
+modulate = Color(0.43, 0.43, 0.43, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_kj5e5")
+
+[node name="RobotArt" type="Control" parent="Main"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Robot" type="TextureRect" parent="Main/RobotArt"]
+layout_mode = 0
+offset_left = 1169.0
+offset_top = 164.0
+offset_right = 2193.0
+offset_bottom = 1188.0
+texture = ExtResource("5_ugakv")
+
+[node name="DogArt" type="Control" parent="Main"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dog" type="TextureRect" parent="Main/DogArt"]
+layout_mode = 0
+offset_left = -223.0
+offset_top = 315.0
+offset_right = 801.0
+offset_bottom = 1339.0
+texture = ExtResource("6_blaf2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 312
+
+[node name="CenterContainer" type="CenterContainer" parent="Main/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Settings" type="TextureButton" parent="Main/MarginContainer/CenterContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = ExtResource("2_1f6v4")
+texture_pressed = ExtResource("3_wuml4")
+texture_hover = ExtResource("4_fn6ug")
+texture_disabled = ExtResource("2_1f6v4")
+texture_focused = ExtResource("3_wuml4")
+
+[node name="Play" type="TextureButton" parent="Main/MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = ExtResource("8_yd5yx")
+texture_pressed = ExtResource("9_7qhvj")
+texture_hover = ExtResource("10_mghqq")
+texture_disabled = ExtResource("8_yd5yx")
+texture_focused = ExtResource("9_7qhvj")
+
+[node name="Exit" type="TextureButton" parent="Main/MarginContainer/CenterContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = ExtResource("2_1f6v4")
+texture_pressed = ExtResource("3_wuml4")
+texture_hover = ExtResource("4_fn6ug")
+texture_disabled = ExtResource("2_1f6v4")
+texture_focused = ExtResource("3_wuml4")
+
+[node name="Logo" type="TextureRect" parent="Main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+pivot_offset = Vector2(512, 212)
+size_flags_horizontal = 4
+texture = ExtResource("7_c71uj")
+stretch_mode = 2
+
+[node name="RotateSinComponent" parent="Main/Logo" instance=ExtResource("12_tqjvs")]
+
+[node name="StatsButton" type="TextureButton" parent="Main"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 146.0
+offset_bottom = 146.0
+focus_mode = 0
+texture_normal = ExtResource("2_1f6v4")
+texture_pressed = ExtResource("3_wuml4")
+texture_hover = ExtResource("4_fn6ug")
+texture_disabled = ExtResource("2_1f6v4")
+texture_focused = ExtResource("3_wuml4")
+
+[node name="Stats" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3864, 0.56784, 0.84, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Stats/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Stats/ColorRect/MarginContainer"]
+layout_mode = 2
+split_offset = 960
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stats/ColorRect/MarginContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_0n3o7")
+theme_override_font_sizes/normal_font_size = 64
+text = "Statistics
+
+Most confident foods
+- Potato (7)
+- Oats (4)
+
+Hours / Minutes played
+2:36"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Stats/ColorRect/MarginContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_0n3o7")
+theme_override_font_sizes/normal_font_size = 64
+text = "
+
+Most confused foods
+- Apple (5)
+- Brocoli (2)"
+
+[connection signal="pressed" from="Main/MarginContainer/CenterContainer/HBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Main/MarginContainer/CenterContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/MarginContainer/CenterContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Main/StatsButton" to="." method="_on_stats_button_pressed"]

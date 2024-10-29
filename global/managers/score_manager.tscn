@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://neyerwtvml8j"]
+
+[ext_resource type="Script" path="res://global/managers/score_manager.gd" id="1_27bmc"]
+
+[node name="ScoreManager" type="Node" groups=["score_manager"]]
+script = ExtResource("1_27bmc")
+positive_color = Color(0.469, 1, 0.46, 1)
+negative_color = Color(1, 0.54, 0.655, 1)

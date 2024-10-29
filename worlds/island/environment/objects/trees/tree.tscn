@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://b65rsxi5xhyj8"]
+
+[ext_resource type="Script" path="res://worlds/island/environment/objects/trees/tree.gd" id="1_10fy8"]
+[ext_resource type="Texture2D" uid="uid://djmdw82mfk0x5" path="res://worlds/island/environment/objects/trees/tree.png" id="1_cguu8"]
+[ext_resource type="Shader" path="res://global/effects/shaders/sway.gdshader" id="1_uuki4"]
+[ext_resource type="Texture2D" uid="uid://ccqfdtdomkxmo" path="res://worlds/island/environment/objects/trees/tree_shadow.png" id="1_wv5j6"]
+
+[sub_resource type="Gradient" id="Gradient_07lud"]
+colors = PackedColorArray(1, 0.9, 0.93, 1, 1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xf1ls"]
+shader = ExtResource("1_uuki4")
+shader_parameter/speed = 1.0
+shader_parameter/magnitude = 16.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2usgx"]
+size = Vector2(54, 44)
+
+[node name="Tree" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_10fy8")
+color_rand = SubResource("Gradient_07lud")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -200
+z_as_relative = false
+material = SubResource("ShaderMaterial_xf1ls")
+position = Vector2(2.08165e-12, -72)
+texture = ExtResource("1_wv5j6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_xf1ls")
+position = Vector2(2.08165e-12, -72)
+texture = ExtResource("1_cguu8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_2usgx")
+debug_color = Color(5.62687e-07, 0.647376, 0.212741, 0.42)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bghscbcq4xspv"]
+
+[ext_resource type="Texture2D" uid="uid://bpsdb41ag8pmi" path="res://global/effects/particles/sprites/puff.png" id="1_p20g8"]
+
+[sub_resource type="Gradient" id="Gradient_mvkeb"]
+offsets = PackedFloat32Array(0, 0.79771, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_6rys2"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="BoostParticlesSecondary" type="CPUParticles2D"]
+z_index = -5
+position = Vector2(-80, 2.08165e-12)
+amount = 16
+texture = ExtResource("1_p20g8")
+direction = Vector2(-1, 2.08165e-12)
+spread = 5.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 200.0
+initial_velocity_max = 500.0
+angle_max = 360.0
+scale_amount_min = 0.2
+scale_amount_max = 0.8
+color = Color(1, 0.45098, 0, 1)
+color_ramp = SubResource("Gradient_mvkeb")
+hue_variation_max = 0.1
+hue_variation_curve = SubResource("Curve_6rys2")

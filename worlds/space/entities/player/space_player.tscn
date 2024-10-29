@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://du33p4ltutgg5"]
+
+[ext_resource type="Script" path="res://worlds/space/entities/player/space_player.gd" id="1_5h7ro"]
+[ext_resource type="Script" path="res://worlds/space/entities/player/components/sprite_handler.gd" id="2_m55d5"]
+[ext_resource type="Texture2D" uid="uid://cx0rpuwe24tr1" path="res://worlds/space/entities/player/sprites/rocket.png" id="3_2fhnc"]
+[ext_resource type="Texture2D" uid="uid://ua6eo4nfb04q" path="res://worlds/space/entities/player/sprites/train.png" id="3_ydelv"]
+[ext_resource type="Script" path="res://worlds/space/entities/player/components/player_weapon.gd" id="4_hmm2c"]
+[ext_resource type="PackedScene" uid="uid://bln78752aa125" path="res://worlds/space/effects/particles/boost_particles_primary.tscn" id="4_kaqmr"]
+[ext_resource type="PackedScene" uid="uid://bghscbcq4xspv" path="res://worlds/space/effects/particles/boost_particles_secondary.tscn" id="5_vsonp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_452m0"]
+radius = 64.0
+
+[node name="SpacePlayer" type="CharacterBody2D" groups=["player"]]
+position = Vector2(2.08165e-12, 2.08165e-12)
+collision_layer = 2
+collision_mask = 45
+slide_on_ceiling = false
+script = ExtResource("1_5h7ro")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_452m0")
+
+[node name="SpriteHandler" type="Node2D" parent="."]
+position = Vector2(-257, -93)
+script = ExtResource("2_m55d5")
+
+[node name="Train" type="Node" parent="SpriteHandler"]
+
+[node name="TrainGraphics" type="Node2D" parent="SpriteHandler/Train"]
+
+[node name="TrainSprite" type="Sprite2D" parent="SpriteHandler/Train/TrainGraphics"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("3_ydelv")
+
+[node name="BoostParticlesPrimary" parent="SpriteHandler/Train/TrainGraphics" instance=ExtResource("4_kaqmr")]
+
+[node name="BoostParticlesSecondary" parent="SpriteHandler/Train/TrainGraphics" instance=ExtResource("5_vsonp")]
+
+[node name="Rocket" type="Node" parent="SpriteHandler"]
+
+[node name="RocketGraphics" type="Node2D" parent="SpriteHandler/Rocket"]
+position = Vector2(-319, -143)
+
+[node name="RocketSprite" type="Sprite2D" parent="SpriteHandler/Rocket/RocketGraphics"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("3_2fhnc")
+
+[node name="BoostParticlesPrimary" parent="SpriteHandler/Rocket/RocketGraphics" instance=ExtResource("4_kaqmr")]
+
+[node name="BoostParticlesSecondary" parent="SpriteHandler/Rocket/RocketGraphics" instance=ExtResource("5_vsonp")]
+
+[node name="Weapon" type="Node2D" parent="."]
+position = Vector2(80, -2.08165e-12)
+script = ExtResource("4_hmm2c")
+
+[node name="ShootTimer" type="Timer" parent="Weapon"]
+wait_time = 0.25
+autostart = true
+
+[node name="SwapCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Weapon/ShootTimer" to="Weapon" method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="SwapCooldownTimer" to="." method="_on_swap_cooldown_timer_timeout"]

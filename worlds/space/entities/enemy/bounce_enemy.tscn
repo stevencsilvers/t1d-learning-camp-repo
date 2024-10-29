@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4fc63h8mqylg"]
+
+[ext_resource type="PackedScene" uid="uid://dfepyrxp7kag0" path="res://worlds/space/entities/enemy/space_enemy.tscn" id="1_viq4r"]
+[ext_resource type="Texture2D" uid="uid://bmd3a7xq3qxmu" path="res://global/symptoms/sprites/thirsty.png" id="2_db6dk"]
+[ext_resource type="PackedScene" uid="uid://dwlvwmipeesus" path="res://worlds/space/entities/enemy/enemy_components/bounce_component.tscn" id="2_u5hea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjod6"]
+radius = 122.037
+
+[node name="BounceEnemy" instance=ExtResource("1_viq4r")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_db6dk")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_hjod6")
+
+[node name="BounceComponent" parent="." index="2" instance=ExtResource("2_u5hea")]

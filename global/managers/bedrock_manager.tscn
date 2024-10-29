@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://deajc3vho4a6j"]
+
+[ext_resource type="Script" path="res://global/managers/bedrock_manager.gd" id="1_341tj"]
+
+[node name="BedrockManager" type="Node"]
+script = ExtResource("1_341tj")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." groups=["bedrock_manager"]]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_request_completed"]

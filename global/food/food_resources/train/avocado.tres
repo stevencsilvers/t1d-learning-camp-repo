@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://4bhmiaymhxk"]
+
+[ext_resource type="Script" path="res://global/food/food_resources/food.gd" id="1_m62a5"]
+[ext_resource type="Texture2D" uid="uid://bj58ttlsfjqld" path="res://global/food/sprites/avocado.png" id="2_18oa1"]
+
+[resource]
+script = ExtResource("1_m62a5")
+name = "Avocado"
+sprite = ExtResource("2_18oa1")
+rocket = false

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://66c2ekkgmvf7"]
+
+[ext_resource type="Script" path="res://worlds/island/environment/objects/trees/forest_boundry.gd" id="1_41pbn"]
+
+[node name="ForestBoundry" type="CollisionPolygon2D"]
+modulate = Color(0, 1, 0.0313726, 0.454902)
+polygon = PackedVector2Array(2.08165e-12, 2.08165e-12, 100, 2.08165e-12, 100, 100, 2.08165e-12, 100)
+script = ExtResource("1_41pbn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

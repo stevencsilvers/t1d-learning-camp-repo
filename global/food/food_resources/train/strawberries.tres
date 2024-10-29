@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://cyf3opcfyetww"]
+
+[ext_resource type="Script" path="res://global/food/food_resources/food.gd" id="1_y1l7b"]
+[ext_resource type="Texture2D" uid="uid://dl78s4scqkop" path="res://global/food/sprites/strawberry.png" id="2_1wdcb"]
+
+[resource]
+script = ExtResource("1_y1l7b")
+name = "Strawberries"
+sprite = ExtResource("2_1wdcb")
+rocket = false

@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://bg3a3dl1it6o2"]
+
+[ext_resource type="Script" path="res://global/managers/response_manager.gd" id="1_xsqqu"]
+[ext_resource type="Texture2D" uid="uid://dcb0tlj5x3yp7" path="res://global/ui/text_box/text_box.png" id="2_m1b21"]
+[ext_resource type="FontFile" uid="uid://cj5mjr4g2f3yp" path="res://global/ui/fonts/PatrickHand-Regular.ttf" id="3_ox3fg"]
+[ext_resource type="Texture2D" uid="uid://ia17v05duax8" path="res://worlds/conversing/ui/icons/check.png" id="4_cl70j"]
+[ext_resource type="Texture2D" uid="uid://chdhk7cq027tt" path="res://worlds/conversing/ui/icons/checkp.png" id="5_1tp2a"]
+[ext_resource type="Texture2D" uid="uid://xmoqdv675otx" path="res://worlds/conversing/ui/icons/speak.png" id="5_ag6tr"]
+[ext_resource type="Texture2D" uid="uid://cis8j35gslb4e" path="res://worlds/conversing/ui/icons/checkh.png" id="6_uktja"]
+[ext_resource type="Texture2D" uid="uid://b61atv862pcs1" path="res://worlds/conversing/ui/icons/speakp.png" id="8_8pkxf"]
+[ext_resource type="Texture2D" uid="uid://8obi7t74s3cg" path="res://worlds/conversing/ui/icons/speakh.png" id="9_kqcia"]
+
+[sub_resource type="Curve" id="Curve_phu84"]
+_data = [Vector2(0, 0), 0.0, 7.94584, 0, 0, Vector2(0.248529, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.663513, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1sx5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppkh3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ri1u"]
+
+[node name="ResponseManager" type="Node2D"]
+position = Vector2(919, 477)
+script = ExtResource("1_xsqqu")
+shake_curve = SubResource("Curve_phu84")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogBox" type="MarginContainer" parent="Control"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -196.0
+offset_right = 512.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/DialogBox"]
+layout_mode = 2
+texture = ExtResource("2_m1b21")
+region_rect = Rect2(0, 0, 768, 768)
+patch_margin_left = 128
+patch_margin_top = 128
+patch_margin_right = 128
+patch_margin_bottom = 128
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/DialogBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="TextEdit" type="TextEdit" parent="Control/DialogBox/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.34902)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ox3fg")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g1sx5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ppkh3")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_5ri1u")
+placeholder_text = "Respond here..."
+wrap_mode = 1
+
+[node name="DoneButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 107.0
+offset_right = 510.0
+offset_bottom = 211.0
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("4_cl70j")
+texture_pressed = ExtResource("5_1tp2a")
+texture_hover = ExtResource("6_uktja")
+texture_disabled = ExtResource("4_cl70j")
+texture_focused = ExtResource("5_1tp2a")
+
+[node name="MicButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = -618.0
+offset_top = -45.0
+offset_right = -514.0
+offset_bottom = 59.0
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("5_ag6tr")
+texture_pressed = ExtResource("8_8pkxf")
+texture_hover = ExtResource("9_kqcia")
+texture_disabled = ExtResource("5_ag6tr")
+texture_focused = ExtResource("8_8pkxf")
+
+[node name="ShakeTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="pressed" from="Control/DoneButton" to="." method="_on_done_button_pressed"]
+[connection signal="pressed" from="Control/MicButton" to="." method="_on_mic_button_pressed"]

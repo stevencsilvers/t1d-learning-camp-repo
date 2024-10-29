@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2gn8d730cuml"]
+
+[ext_resource type="Script" path="res://global/resources/time_setter.gd" id="1_ccqha"]
+
+[node name="TimeSetter" type="Node2D"]
+script = ExtResource("1_ccqha")

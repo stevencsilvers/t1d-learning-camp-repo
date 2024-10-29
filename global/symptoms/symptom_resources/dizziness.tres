@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Symptom" load_steps=3 format=3 uid="uid://bdt78qorcb3ej"]
+
+[ext_resource type="Script" path="res://global/symptoms/symptom.gd" id="1_suuhd"]
+[ext_resource type="Texture2D" uid="uid://x3mwl72fcaw0" path="res://global/symptoms/sprites/dizziness.png" id="2_obrhb"]
+
+[resource]
+script = ExtResource("1_suuhd")
+name = "Dizziness"
+sprite = ExtResource("2_obrhb")
+high = false

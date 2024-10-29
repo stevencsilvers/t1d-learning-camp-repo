@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bstwkw5u1epvx"]
+
+[ext_resource type="Script" path="res://worlds/space/entities/player/components/player_bullet.gd" id="1_slcuj"]
+[ext_resource type="Texture2D" uid="uid://bt0v6l5ios6fr" path="res://worlds/space/entities/player/components/player_bullet.png" id="2_dggdy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_efeit"]
+radius = 31.0
+
+[node name="PlayerBullet" type="Node2D"]
+script = ExtResource("1_slcuj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dggdy")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 45
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_efeit")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

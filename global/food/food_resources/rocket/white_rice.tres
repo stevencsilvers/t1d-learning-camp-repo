@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://ccv8jomi4eo7n"]
+
+[ext_resource type="Script" path="res://global/food/food_resources/food.gd" id="1_tifj0"]
+[ext_resource type="Texture2D" uid="uid://dwwt1jbwd0tif" path="res://global/food/sprites/white_rice.png" id="2_t4l7j"]
+
+[resource]
+script = ExtResource("1_tifj0")
+name = "White Rice"
+sprite = ExtResource("2_t4l7j")
+rocket = true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drebrnwixt3db"]
+
+[ext_resource type="Script" path="res://global/effects/code/rotate_sin_component.gd" id="1_wubdr"]
+
+[node name="RotateSinComponent" type="Node"]
+script = ExtResource("1_wubdr")

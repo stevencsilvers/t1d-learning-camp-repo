@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Conversation" load_steps=5 format=3 uid="uid://c31g1qu32x10w"]
+
+[ext_resource type="Texture2D" uid="uid://b84adnvcckmkv" path="res://worlds/conversing/environment/backgrounds/dining.png" id="1_37jpi"]
+[ext_resource type="Script" path="res://global/resources/bedrock_call.gd" id="2_xj1up"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="3_m0pdk"]
+
+[sub_resource type="Resource" id="Resource_0bujp"]
+script = ExtResource("2_xj1up")
+model = "base"
+prompt = "You: \"You do know what blood sugar is?\" Someone says, \"_.\" Choose the most appropriate response out of the following three and repeat it back BUT DO NOT WRITE ANYTHING ELSE OR EXPLAIN WHAT BLOOD SUGAR IS: \"Great! Let's do a bit of review.\", \"That's not quite right, let's do some review!\", \"Well, let's learn then!\""
+length = 50
+temp = 0.0
+top_p = 0.1
+
+[resource]
+script = ExtResource("3_m0pdk")
+background = ExtResource("1_37jpi")
+dialog = Array[String](["Welcome to the dining hall!", "Today, we'll have our first lesson.", "The topic we're learning about today is blood sugar!", "Do you know what blood sugar is?", "_", "^", "Blood sugar is the amount of sugar that's in your body.", "Your body needs this sugar for energy!", "But, your body also needs the right amount of sugar. Not too much,", "and not too little!", "Normally, your body is able to keep the amount of blood sugar in control.", "But with type 1 diabetes, your body has a hard time controlling your blood sugar.", "So, you need to help your body stay in control!", "You can do this by making healthy eating choices,", "and by paying attention to how you feel.", "In the coming days at camp, we'll learn about how to do these things so you can stay healthy!", "Great job learning today!", "I'll see you outside!"])
+bedrock_calls = Array[ExtResource("2_xj1up")]([SubResource("Resource_0bujp")])

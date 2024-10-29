@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkts3055t0r1v"]
+
+[ext_resource type="PackedScene" uid="uid://dfepyrxp7kag0" path="res://worlds/space/entities/enemy/space_enemy.tscn" id="1_qtg6w"]
+[ext_resource type="PackedScene" uid="uid://do18e2biphvov" path="res://worlds/space/entities/enemy/enemy_components/follow_component.tscn" id="2_e7k4e"]
+
+[node name="FollowEnemy" instance=ExtResource("1_qtg6w")]
+data = 1
+
+[node name="FollowComponent" parent="." index="2" instance=ExtResource("2_e7k4e")]

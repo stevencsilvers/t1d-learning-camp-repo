@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwm7or061m7nk"]
+
+[ext_resource type="Theme" uid="uid://dlsrd5aew0fxs" path="res://global/ui/themes/cartoon.tres" id="1_qgdeq"]
+[ext_resource type="Script" path="res://global/ui/score/add_to_score_label.gd" id="2_8076q"]
+
+[node name="AddToScoreLabel" type="RichTextLabel"]
+z_index = 500
+offset_right = 324.0
+offset_bottom = 101.0
+mouse_filter = 2
+theme = ExtResource("1_qgdeq")
+theme_override_font_sizes/normal_font_size = 64
+text = "+1000"
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("2_8076q")

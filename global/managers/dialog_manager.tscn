@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci2cv5dlrqdel"]
+
+[ext_resource type="Script" path="res://global/managers/dialog_manager.gd" id="1_7ww63"]
+[ext_resource type="Texture2D" uid="uid://dcb0tlj5x3yp7" path="res://global/ui/text_box/text_box.png" id="2_hxmty"]
+[ext_resource type="FontFile" uid="uid://cj5mjr4g2f3yp" path="res://global/ui/fonts/PatrickHand-Regular.ttf" id="3_ghlmu"]
+
+[node name="DialogManager" type="Node2D"]
+z_index = 1000
+z_as_relative = false
+script = ExtResource("1_7ww63")
+
+[node name="BubbleBox" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(256, 256)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BubbleBox"]
+layout_mode = 2
+texture = ExtResource("2_hxmty")
+region_rect = Rect2(0, 0, 768, 768)
+patch_margin_left = 128
+patch_margin_top = 128
+patch_margin_right = 128
+patch_margin_bottom = 128
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="DialogBox" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(256, 256)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="DialogLabel" type="RichTextLabel" parent="DialogBox"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_ghlmu")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+visible_characters_behavior = 1

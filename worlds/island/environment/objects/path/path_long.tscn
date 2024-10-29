@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs34lt1poh8x"]
+
+[ext_resource type="PackedScene" uid="uid://cayd34heonhwe" path="res://worlds/island/environment/objects/path/path_round.tscn" id="1_kx6n5"]
+[ext_resource type="Texture2D" uid="uid://dwphx51bw7biu" path="res://worlds/island/environment/objects/path/path_long.png" id="2_7egdk"]
+
+[node name="PathLong" instance=ExtResource("1_kx6n5")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_7egdk")

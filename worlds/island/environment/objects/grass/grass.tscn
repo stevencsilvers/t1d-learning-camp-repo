@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://dx2wrps45tjj8"]
+
+[ext_resource type="Script" path="res://worlds/island/environment/objects/trees/tree.gd" id="1_pll1b"]
+[ext_resource type="Texture2D" uid="uid://d4iiib0sundx1" path="res://worlds/island/environment/objects/grass/grass2.png" id="2_ssqtc"]
+[ext_resource type="Texture2D" uid="uid://cr2t5si2avx7s" path="res://worlds/island/environment/objects/grass/grass3.png" id="3_vb2gl"]
+[ext_resource type="Texture2D" uid="uid://c5vbxptgm6t4l" path="res://worlds/island/environment/objects/grass/grass4.png" id="4_dieyi"]
+[ext_resource type="Texture2D" uid="uid://cflop7brvv8al" path="res://worlds/island/environment/objects/grass/grass5.png" id="5_l1grm"]
+[ext_resource type="Shader" path="res://global/effects/shaders/sway.gdshader" id="6_w8k2j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xf1ls"]
+shader = ExtResource("6_w8k2j")
+shader_parameter/speed = 1.0
+shader_parameter/magnitude = 16.0
+shader_parameter/offset = 0.0
+
+[node name="Grass" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_pll1b")
+size_rand = 0.1
+sprites = Array[Texture2D]([ExtResource("2_ssqtc"), ExtResource("3_vb2gl"), ExtResource("4_dieyi"), ExtResource("5_l1grm")])
+
+[node name="Sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_xf1ls")
+position = Vector2(2.08165e-12, -9)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_ssqtc")

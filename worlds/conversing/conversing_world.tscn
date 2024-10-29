@@ -1,0 +1,221 @@
+[gd_scene load_steps=25 format=3 uid="uid://dykqo17q8wwfw"]
+
+[ext_resource type="Script" path="res://worlds/conversing/conversing_world.gd" id="1_3biie"]
+[ext_resource type="Resource" uid="uid://dt2pa06dely8o" path="res://worlds/conversing/resources/conversations/rocket_vs_train.tres" id="2_sxm7u"]
+[ext_resource type="Resource" uid="uid://cu1kpe528bjvd" path="res://worlds/conversing/resources/conversations/introduction.tres" id="3_vucyf"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="3_xa3d1"]
+[ext_resource type="Resource" uid="uid://dp4yorc8coal6" path="res://worlds/conversing/resources/conversations/breakfast.tres" id="4_oee77"]
+[ext_resource type="Texture2D" uid="uid://utnuetkf5c7y" path="res://worlds/conversing/environment/backgrounds/classroom.png" id="5_03nt5"]
+[ext_resource type="Texture2D" uid="uid://wai65yag7fp3" path="res://worlds/conversing/entities/robot/robot.png" id="5_wn60h"]
+[ext_resource type="Script" path="res://worlds/conversing/effects/oscilate.gd" id="6_d5t4k"]
+[ext_resource type="PackedScene" uid="uid://xhh03hxqgeo3" path="res://global/managers/conversing_manager.tscn" id="6_scd8t"]
+[ext_resource type="Resource" uid="uid://c31g1qu32x10w" path="res://worlds/conversing/resources/conversations/blood_sugar.tres" id="7_7kh5m"]
+[ext_resource type="PackedScene" uid="uid://bg3a3dl1it6o2" path="res://global/managers/response_manager.tscn" id="7_d8kyt"]
+[ext_resource type="Texture2D" uid="uid://dls7aun0adw46" path="res://worlds/conversing/entities/robot/robot_talking.png" id="7_uwsdg"]
+[ext_resource type="Texture2D" uid="uid://o42ct4pm3pbc" path="res://worlds/conversing/entities/dog/dog.png" id="7_vj33r"]
+[ext_resource type="Resource" uid="uid://dc1b1x43ape72" path="res://worlds/conversing/resources/conversations/symptoms.tres" id="8_svw08"]
+[ext_resource type="Texture2D" uid="uid://dyic6erfemami" path="res://worlds/conversing/entities/dog/dog_talking.png" id="9_2c3a8"]
+[ext_resource type="PackedScene" uid="uid://ci2cv5dlrqdel" path="res://global/managers/dialog_manager.tscn" id="9_g4d2x"]
+[ext_resource type="Resource" uid="uid://755vxbqmqhvi" path="res://worlds/conversing/resources/conversations/combating_symptoms.tres" id="9_jor34"]
+[ext_resource type="Texture2D" uid="uid://ot0jqia8gjjp" path="res://worlds/conversing/environment/colorful_overlay.png" id="13_vucev"]
+
+[sub_resource type="Animation" id="Animation_sowqv"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_wn60h")]
+}
+
+[sub_resource type="Animation" id="Animation_4nu53"]
+resource_name = "talking"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_uwsdg"), ExtResource("5_wn60h")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e26wn"]
+_data = {
+"idle": SubResource("Animation_sowqv"),
+"talking": SubResource("Animation_4nu53")
+}
+
+[sub_resource type="Animation" id="Animation_afwsr"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_vj33r")]
+}
+
+[sub_resource type="Animation" id="Animation_2b6ih"]
+resource_name = "talking"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("9_2c3a8"), ExtResource("7_vj33r")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yydf7"]
+_data = {
+"idle": SubResource("Animation_afwsr"),
+"talking": SubResource("Animation_2b6ih")
+}
+
+[node name="ConversingWorld" type="Node2D" groups=["teaching_world"]]
+script = ExtResource("1_3biie")
+
+[node name="ConversingManager" parent="." node_paths=PackedStringArray("dialog_manager", "response_manager", "image_rect") instance=ExtResource("6_scd8t")]
+dialog_manager = NodePath("../DialogLayer/DialogManager")
+response_manager = NodePath("../DialogLayer/ResponseManager")
+image_rect = NodePath("../CanvasLayer/Chalkboard")
+conversations = Array[ExtResource("3_xa3d1")]([ExtResource("2_sxm7u"), ExtResource("4_oee77"), ExtResource("8_svw08"), ExtResource("9_jor34"), ExtResource("3_vucyf"), ExtResource("7_7kh5m")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["canvas"]]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_03nt5")
+
+[node name="Chalkboard" type="TextureRect" parent="CanvasLayer"]
+offset_left = 306.0
+offset_top = 264.0
+offset_right = 1086.0
+offset_bottom = 744.0
+stretch_mode = 5
+
+[node name="RobotControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_d5t4k")
+
+[node name="Robot" type="TextureRect" parent="CanvasLayer/RobotControl" groups=["robot"]]
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 103.0
+offset_top = -381.0
+offset_right = 1127.0
+offset_bottom = 643.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_wn60h")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/RobotControl/Robot"]
+libraries = {
+"": SubResource("AnimationLibrary_e26wn")
+}
+
+[node name="DogControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_d5t4k")
+speed = 1.5
+magnitude = 10.0
+
+[node name="Dog" type="TextureRect" parent="CanvasLayer/DogControl" groups=["robot"]]
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1120.0
+offset_top = -57.0
+offset_right = -96.0
+offset_bottom = 967.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_vj33r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DogControl/Dog"]
+libraries = {
+"": SubResource("AnimationLibrary_yydf7")
+}
+
+[node name="TalkingTimer" type="Timer" parent="CanvasLayer/DogControl/Dog"]
+wait_time = 0.6
+one_shot = true
+
+[node name="DialogLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogManager" parent="DialogLayer" instance=ExtResource("9_g4d2x")]
+position = Vector2(824, 832)
+
+[node name="ResponseManager" parent="DialogLayer" instance=ExtResource("7_d8kyt")]
+position = Vector2(635, 210)
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorfulOverlay" type="TextureRect" parent="Overlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("13_vucev")
+
+[connection signal="conversation_started" from="ConversingManager" to="." method="_on_conversing_manager_conversation_started"]
+[connection signal="timeout" from="CanvasLayer/DogControl/Dog/TalkingTimer" to="." method="_on_talking_timer_timeout"]
+[connection signal="text_ended" from="DialogLayer/DialogManager" to="." method="_on_dialog_manager_text_ended"]
+[connection signal="text_started" from="DialogLayer/DialogManager" to="." method="_on_dialog_manager_text_started"]
+[connection signal="text_requested" from="DialogLayer/ResponseManager" to="." method="_on_response_manager_text_requested"]
+[connection signal="text_submitted" from="DialogLayer/ResponseManager" to="." method="_on_response_manager_text_submitted"]

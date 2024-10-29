@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdvgir3p655gm"]
+
+[ext_resource type="Texture2D" uid="uid://cm720omoccs3y" path="res://worlds/island/environment/landscape/island.png" id="1_y08sw"]
+
+[node name="Island" type="Node2D"]
+z_index = -500
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y08sw")

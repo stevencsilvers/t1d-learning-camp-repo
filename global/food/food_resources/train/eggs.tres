@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://burorraehiwp3"]
+
+[ext_resource type="Script" path="res://global/food/food_resources/food.gd" id="1_dfosc"]
+[ext_resource type="Texture2D" uid="uid://do48n7xcggvss" path="res://global/food/sprites/eggs.png" id="2_lmgjk"]
+
+[resource]
+script = ExtResource("1_dfosc")
+name = "Eggs"
+sprite = ExtResource("2_lmgjk")
+rocket = false

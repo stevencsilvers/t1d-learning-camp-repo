@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs4kg6vd6gj7g"]
+
+[ext_resource type="Texture2D" uid="uid://cnqxlrvu2ay5x" path="res://global/effects/particles/sprites/paw_small.png" id="1_77g62"]
+[ext_resource type="Script" path="res://worlds/island/entities/player/footsteps/footstep.gd" id="2_kafrv"]
+
+[node name="Footstep" type="Sprite2D"]
+modulate = Color(0, 0, 0, 0.188235)
+z_index = -300
+texture = ExtResource("1_77g62")
+script = ExtResource("2_kafrv")

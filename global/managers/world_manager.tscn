@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8dx2byowqc6l"]
+
+[ext_resource type="Script" path="res://global/managers/world_manager.gd" id="1_gr63c"]
+[ext_resource type="PackedScene" uid="uid://deajc3vho4a6j" path="res://global/managers/bedrock_manager.tscn" id="2_ayv8h"]
+[ext_resource type="PackedScene" uid="uid://ynxp8f5jmfvh" path="res://global/managers/audio_manager.tscn" id="3_if5tn"]
+[ext_resource type="PackedScene" uid="uid://b06070wcfthca" path="res://global/managers/progress_manager.tscn" id="4_tvxqi"]
+
+[node name="WorldManager" type="Node" groups=["world_manager"]]
+script = ExtResource("1_gr63c")
+default_world = "main_menu"
+
+[node name="GlobalUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Fade" type="ColorRect" parent="GlobalUI"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BedrockManager" parent="." instance=ExtResource("2_ayv8h")]
+
+[node name="AudioManager" parent="." instance=ExtResource("3_if5tn")]
+
+[node name="ProgressManager" parent="." instance=ExtResource("4_tvxqi")]

@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="Conversation" load_steps=11 format=3 uid="uid://755vxbqmqhvi"]
+
+[ext_resource type="Texture2D" uid="uid://utnuetkf5c7y" path="res://worlds/conversing/environment/backgrounds/classroom.png" id="1_b5x8m"]
+[ext_resource type="Script" path="res://global/resources/bedrock_call.gd" id="1_ga66n"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="2_yn4x1"]
+
+[sub_resource type="Resource" id="Resource_g8usk"]
+script = ExtResource("1_ga66n")
+model = "base"
+prompt = "(You are a pediatrician quizzing a child with type 1 diabetes. Give them feedback on their answer in a couple short sentences. The correct answer: Blood sugar is too high) You: If I told you I was feeling very tired, thirsty, and needed to pee a lot, would you think I had high blood sugar or low blood sugar? Other: _. You: "
+length = 100
+temp = 0.2
+top_p = 0.3
+
+[sub_resource type="Resource" id="Resource_stgqv"]
+script = ExtResource("1_ga66n")
+model = "base"
+prompt = "(You are a pediatrician quizzing a child with type 1 diabetes. Give them feedback on their answer in a couple short sentences. The correct answer: Blood sugar is too low) You: So what about if I told you I was feeling dizzy, hungry, and was sweating a lot? Would you think I had high blood sugar or low blood sugar? Other: _. You: "
+length = 100
+temp = 0.2
+top_p = 0.3
+
+[sub_resource type="Resource" id="Resource_a2rbk"]
+script = ExtResource("1_ga66n")
+model = "base"
+prompt = "(You are a pediatrician quizzing a child with type 1 diabetes. Give them feedback on their answer in a couple short sentences with simple language, and use the term \"rocket food\". The correct answer: a lot of energy. If they do not respond appropriately, re-ask the question.) You: Does rocket food have a little energy or lots of energy? Other: _. You:"
+length = 100
+temp = 0.2
+top_p = 0.3
+
+[sub_resource type="Resource" id="Resource_oaulg"]
+script = ExtResource("1_ga66n")
+model = "base"
+prompt = "(You are a pediatrician quizzing a child with type 1 diabetes. Give them feedback on their answer in a couple short sentences with simple language, and use the term \"train food\". The correct answer: a little of energy. If they do not respond appropriately, re-ask the question.) You: Does train food have a little energy or lots of energy? Other: _. You:"
+length = 100
+temp = 0.2
+top_p = 0.3
+
+[sub_resource type="Resource" id="Resource_ghn3m"]
+script = ExtResource("1_ga66n")
+model = "base"
+prompt = "(You are a pediatrician talking to a child with type 1 diabetes. Give them feedback on their answer in a short sentence and using soft language. The correct answer is train food.) You: If you have too much energy, do you think you should eat rocket food or train food? Other: _. You:"
+length = 100
+temp = 0.2
+top_p = 0.3
+
+[sub_resource type="Resource" id="Resource_5ih10"]
+script = ExtResource("1_ga66n")
+model = "base"
+prompt = "(You are a pediatrician talking to a child with type 1 diabetes. Give them feedback on their answer in a short sentence and using soft language. The correct answer is rocket food.) You: If you have too little energy, do you think you should eat rocket food or train food? Other: _. You:"
+length = 100
+temp = 0.2
+top_p = 0.3
+
+[sub_resource type="Resource" id="Resource_4vww5"]
+script = ExtResource("1_ga66n")
+model = "base"
+prompt = "(You are a pediatrician talking to a child with type 1 diabetes. You just had a lesson about how if you feel symptoms of high blood sugar, you should eat low-carb \"train food,\" and if you feel symptoms of low blood sugar, you should eat high-carb \"rocket food.\" If they have a question, give an answer in a few sentences.) You: Do you have any questions about helping your body when you have high or low blood sugar? Other: _. You: "
+length = 100
+temp = 0.7
+top_p = 0.8
+
+[resource]
+script = ExtResource("2_yn4x1")
+background = ExtResource("1_b5x8m")
+dialog = Array[String](["Good morning!", "Welcome back to the schoolhouse.", "Today, we're going to learn about how you can help your body when it has too high or too low blood sugar.", "First, let's do some review on the ideas we learned in the past couple days.", "If I told you I was feeling very tired and thirsty, and I needed to pee a lot, would you think I had high blood sugar or low blood sugar?", "_", "^", "What about if I told you I was feeling dizzy, hungry, and was sweating a lot? Would you think I had high blood sugar or low blood sugar?", "_", "^", "Now, let's review rocket and train food.", "~rocketfood", "Do you remember if rocket food has a little energy or lots of energy?", "_", "^", "~trainfood", "Now what about train food? Do you remember if it has a little energy or lots of energy?", "_", "^", "~", "Now that we've reviewed both how you might feel with high and low blood sugar and rocket and train food, ", "we can learn how you can help your body when you have too high or too low blood sugar.", "When your blood sugar is too high, this means you have too much energy!", "If you have too much energy, do you think you should eat rocket food or train food?", "_", "^", "~train", "Remember that train food has less energy and helps you keep a steady blood sugar level.", "So, if you have high blood sugar, then eating train food can help you bring it down graadually without making your blood sugar go even higher.", "~", "On the other hand, if your blood sugar is too low, this means you have too little energy!", "If you have too little energy, do you think you should eat rocket food or train food?", "_", "^", "~rocket", "Remember that rocket food has lots of energy!", "So, if you have low blood sugar, then eating rocket food can help give your body a quick burst of energy.", "~", "So, let's go over what we learned today.", "If you feel like you have high blood sugar, eat mainly train foods while your blood sugar levels drop back down.", "If you feel like you have low blood sugar, eat a bit of rocket food to get it back up!", "And, remember to always drink enough water.", "This will help your body keep a good blood sugar level!", "Do you have any questions about helping your body when you have high or low blood sugar?", "_", "^", "Great job learning today!", "I'll see you next time!"])
+bedrock_calls = Array[ExtResource("1_ga66n")]([SubResource("Resource_g8usk"), SubResource("Resource_stgqv"), SubResource("Resource_a2rbk"), SubResource("Resource_oaulg"), SubResource("Resource_ghn3m"), SubResource("Resource_5ih10"), SubResource("Resource_4vww5")])

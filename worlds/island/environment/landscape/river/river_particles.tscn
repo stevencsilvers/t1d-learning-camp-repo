@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8ldi3filc0kl"]
+
+[ext_resource type="Texture2D" uid="uid://bu56m6cw2tfa6" path="res://global/effects/particles/sprites/dot.png" id="1_ho7pq"]
+
+[sub_resource type="Gradient" id="Gradient_y07qh"]
+offsets = PackedFloat32Array(0, 0.262911, 0.746479, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ey2v5"]
+gradient = SubResource("Gradient_y07qh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4widm"]
+lifetime_randomness = 0.05
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+emission_shape = 3
+emission_box_extents = Vector3(50, 100, 2.08165e-12)
+angle_max = 360.0
+spread = 10.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_min = 0.2
+color = Color(0.47, 0.7085, 1, 1)
+color_ramp = SubResource("GradientTexture1D_ey2v5")
+hue_variation_min = -0.02
+hue_variation_max = 2.08167e-17
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+turbulence_noise_speed_random = 0.0
+
+[node name="RiverParticles" type="GPUParticles2D"]
+z_index = 3
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_4widm")
+texture = ExtResource("1_ho7pq")
+lifetime = 4.0
+preprocess = 2.0

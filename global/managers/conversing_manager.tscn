@@ -1,0 +1,86 @@
+[gd_scene load_steps=29 format=3 uid="uid://xhh03hxqgeo3"]
+
+[ext_resource type="Script" path="res://global/managers/conversing_manager.gd" id="1_0hd3n"]
+[ext_resource type="Script" path="res://worlds/conversing/resources/display_image.gd" id="2_0f08i"]
+[ext_resource type="Texture2D" uid="uid://brh3w2v2bib0o" path="res://worlds/conversing/chalkboard_drawings/cb_rocket.png" id="3_c6v0q"]
+[ext_resource type="Texture2D" uid="uid://ohumupo0ottv" path="res://worlds/conversing/chalkboard_drawings/cb_train.png" id="4_pho82"]
+[ext_resource type="Texture2D" uid="uid://dauhp1k3yk5qg" path="res://worlds/conversing/chalkboard_drawings/cb_activities.png" id="5_uu0jw"]
+[ext_resource type="Texture2D" uid="uid://v6kqiuesq771" path="res://worlds/conversing/chalkboard_drawings/cb_rocketfood.png" id="6_wok8o"]
+[ext_resource type="Texture2D" uid="uid://dehma4p18rgoj" path="res://worlds/conversing/chalkboard_drawings/cb_trainfood.png" id="7_3uj5j"]
+[ext_resource type="Texture2D" uid="uid://de4nlyp2mfn58" path="res://worlds/conversing/chalkboard_drawings/cb_high.png" id="8_gi8d2"]
+[ext_resource type="Texture2D" uid="uid://rtvixa1t0moo" path="res://worlds/conversing/chalkboard_drawings/cb_low.png" id="9_bmvtp"]
+[ext_resource type="Texture2D" uid="uid://x3mwl72fcaw0" path="res://global/symptoms/sprites/dizziness.png" id="10_doq8y"]
+[ext_resource type="Texture2D" uid="uid://bx5d1sjtga02f" path="res://global/symptoms/sprites/hungry.png" id="11_3i0jh"]
+[ext_resource type="Texture2D" uid="uid://8gvr4107pn4x" path="res://global/symptoms/sprites/peeing.png" id="12_eychf"]
+[ext_resource type="Texture2D" uid="uid://us8075kdjepc" path="res://global/symptoms/sprites/sweating.png" id="13_b52ki"]
+[ext_resource type="Texture2D" uid="uid://bmd3a7xq3qxmu" path="res://global/symptoms/sprites/thirsty.png" id="14_4112y"]
+[ext_resource type="Texture2D" uid="uid://cke3upe1uck5u" path="res://global/symptoms/sprites/tired.png" id="15_btr7e"]
+
+[sub_resource type="Resource" id="Resource_m1jax"]
+script = ExtResource("2_0f08i")
+name = "rocket"
+image = ExtResource("3_c6v0q")
+
+[sub_resource type="Resource" id="Resource_x48cc"]
+script = ExtResource("2_0f08i")
+name = "train"
+image = ExtResource("4_pho82")
+
+[sub_resource type="Resource" id="Resource_3qj5o"]
+script = ExtResource("2_0f08i")
+name = "activities"
+image = ExtResource("5_uu0jw")
+
+[sub_resource type="Resource" id="Resource_xd8tm"]
+script = ExtResource("2_0f08i")
+name = "rocketfood"
+image = ExtResource("6_wok8o")
+
+[sub_resource type="Resource" id="Resource_nro6l"]
+script = ExtResource("2_0f08i")
+name = "trainfood"
+image = ExtResource("7_3uj5j")
+
+[sub_resource type="Resource" id="Resource_gxf6m"]
+script = ExtResource("2_0f08i")
+name = "high"
+image = ExtResource("8_gi8d2")
+
+[sub_resource type="Resource" id="Resource_h8crq"]
+script = ExtResource("2_0f08i")
+name = "low"
+image = ExtResource("9_bmvtp")
+
+[sub_resource type="Resource" id="Resource_00ije"]
+script = ExtResource("2_0f08i")
+name = "dizziness"
+image = ExtResource("10_doq8y")
+
+[sub_resource type="Resource" id="Resource_4r5or"]
+script = ExtResource("2_0f08i")
+name = "hungry"
+image = ExtResource("11_3i0jh")
+
+[sub_resource type="Resource" id="Resource_81hgm"]
+script = ExtResource("2_0f08i")
+name = "peeing"
+image = ExtResource("12_eychf")
+
+[sub_resource type="Resource" id="Resource_a54d3"]
+script = ExtResource("2_0f08i")
+name = "sweating"
+image = ExtResource("13_b52ki")
+
+[sub_resource type="Resource" id="Resource_44jqk"]
+script = ExtResource("2_0f08i")
+name = "thirsty"
+image = ExtResource("14_4112y")
+
+[sub_resource type="Resource" id="Resource_hndpc"]
+script = ExtResource("2_0f08i")
+name = "tired"
+image = ExtResource("15_btr7e")
+
+[node name="ConversingManager" type="Node"]
+script = ExtResource("1_0hd3n")
+images = Array[ExtResource("2_0f08i")]([SubResource("Resource_m1jax"), SubResource("Resource_x48cc"), SubResource("Resource_3qj5o"), SubResource("Resource_xd8tm"), SubResource("Resource_nro6l"), SubResource("Resource_gxf6m"), SubResource("Resource_h8crq"), SubResource("Resource_00ije"), SubResource("Resource_4r5or"), SubResource("Resource_81hgm"), SubResource("Resource_a54d3"), SubResource("Resource_44jqk"), SubResource("Resource_hndpc")])

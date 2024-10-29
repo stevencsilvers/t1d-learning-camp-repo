@@ -1,0 +1,162 @@
+[gd_scene load_steps=30 format=3 uid="uid://ynxp8f5jmfvh"]
+
+[ext_resource type="Script" path="res://global/managers/audio_manager.gd" id="1_w2m8b"]
+[ext_resource type="PackedScene" uid="uid://dbphxegl06ntb" path="res://global/sounds/audio_stream_player_plus.tscn" id="2_au7yr"]
+[ext_resource type="AudioStream" uid="uid://buypfsagbpxw" path="res://global/sounds/sfx/walk_wood1.wav" id="2_k71af"]
+[ext_resource type="AudioStream" uid="uid://cakhl848twtug" path="res://global/sounds/sfx/walk_wood.wav" id="4_ej61l"]
+[ext_resource type="AudioStream" uid="uid://bv60sjdwqajk8" path="res://global/sounds/sfx/walk_wood2.wav" id="5_4ywvj"]
+[ext_resource type="AudioStream" uid="uid://1je24kh4f3x1" path="res://global/sounds/sfx/walk_grass.wav" id="6_qu0uv"]
+[ext_resource type="AudioStream" uid="uid://b1bqf52ocpit" path="res://global/sounds/sfx/walk_grass1.wav" id="7_tfy82"]
+[ext_resource type="AudioStream" uid="uid://bf5bvj0p6intx" path="res://global/sounds/sfx/walk_sand.wav" id="8_1uloo"]
+[ext_resource type="AudioStream" uid="uid://bm5bstg32bc4e" path="res://global/sounds/sfx/walk_sand1.wav" id="9_eivrk"]
+[ext_resource type="AudioStream" uid="uid://30dphd4kpyee" path="res://global/sounds/sfx/walk_sand2.wav" id="10_jj02s"]
+[ext_resource type="AudioStream" uid="uid://cgdp1fe7xuthu" path="res://global/sounds/sfx/boop.wav" id="11_frmj4"]
+[ext_resource type="Script" path="res://global/sounds/audio_stream_player_plus.gd" id="12_8csdn"]
+[ext_resource type="AudioStream" uid="uid://cg616xdtinj4x" path="res://global/sounds/sfx/submit_text.wav" id="13_2h8ux"]
+[ext_resource type="AudioStream" uid="uid://q4b7lgynf5k3" path="res://global/sounds/sfx/enter.wav" id="13_np18e"]
+[ext_resource type="AudioStream" uid="uid://d0x3g7mte65ie" path="res://global/sounds/sfx/appear.wav" id="14_dpukx"]
+[ext_resource type="AudioStream" uid="uid://cjjlpcbwys2n" path="res://global/sounds/sfx/disappear.wav" id="15_du28m"]
+[ext_resource type="AudioStream" uid="uid://by3skk7ohg3nr" path="res://global/sounds/sfx/chalk1.wav" id="17_xb03i"]
+[ext_resource type="AudioStream" uid="uid://r5q45q7qucle" path="res://global/sounds/sfx/chalk2.wav" id="18_3orq8"]
+[ext_resource type="AudioStream" uid="uid://hiw8rsw4klfd" path="res://global/sounds/sfx/chalk3.wav" id="19_qaqm7"]
+[ext_resource type="AudioStream" uid="uid://cpt51yb5rcgs2" path="res://global/sounds/sfx/chalk4.wav" id="20_xxk12"]
+[ext_resource type="AudioStream" uid="uid://b063rje342lms" path="res://global/sounds/sfx/chalk5.wav" id="21_jx3vi"]
+[ext_resource type="AudioStream" uid="uid://c41ch65tuxhwe" path="res://global/sounds/sfx/chalk6.wav" id="22_p11fn"]
+[ext_resource type="AudioStream" uid="uid://nwbseklk4bau" path="res://global/sounds/sfx/chalk7.wav" id="23_dnw6b"]
+[ext_resource type="AudioStream" uid="uid://b67d21j7pdfcr" path="res://global/sounds/sfx/chalk8.wav" id="24_j4ock"]
+[ext_resource type="AudioStream" uid="uid://baqq0gw1m1uak" path="res://global/sounds/sfx/shoot.wav" id="25_3d6ba"]
+[ext_resource type="AudioStream" uid="uid://bic4j0fk0ey1g" path="res://global/sounds/sfx/wrong.wav" id="26_qmalr"]
+[ext_resource type="AudioStream" uid="uid://bx80n81q5xweq" path="res://global/sounds/sfx/explode.wav" id="27_p0qjn"]
+[ext_resource type="AudioStream" uid="uid://cwp115687e3e8" path="res://global/sounds/sfx/swap.wav" id="28_1t67c"]
+[ext_resource type="AudioStream" uid="uid://d2hctiomf4bk2" path="res://global/sounds/sfx/player_hit.wav" id="29_pqgxu"]
+
+[node name="AudioManager" type="Node" groups=["audio_manager"]]
+script = ExtResource("1_w2m8b")
+
+[node name="WalkWood" parent="." instance=ExtResource("2_au7yr")]
+stream = ExtResource("2_k71af")
+volume_db = -10.0
+sfxs = Array[AudioStreamWAV]([ExtResource("4_ej61l"), ExtResource("2_k71af"), ExtResource("5_4ywvj")])
+pitch_rand = 0.1
+volume_rand = 1.0
+
+[node name="WalkGrass" parent="." instance=ExtResource("2_au7yr")]
+stream = ExtResource("6_qu0uv")
+volume_db = -15.0
+sfxs = Array[AudioStreamWAV]([ExtResource("6_qu0uv"), ExtResource("7_tfy82")])
+pitch_rand = 0.1
+volume_rand = 1.0
+
+[node name="WalkSand" parent="." instance=ExtResource("2_au7yr")]
+stream = ExtResource("8_1uloo")
+volume_db = -20.0
+sfxs = Array[AudioStreamWAV]([ExtResource("8_1uloo"), ExtResource("9_eivrk"), ExtResource("10_jj02s")])
+pitch_rand = 0.1
+volume_rand = 1.0
+
+[node name="WalkPath" parent="." instance=ExtResource("2_au7yr")]
+stream = ExtResource("8_1uloo")
+volume_db = -20.0
+pitch_scale = 0.7
+sfxs = Array[AudioStreamWAV]([ExtResource("8_1uloo"), ExtResource("9_eivrk"), ExtResource("10_jj02s")])
+pitch_rand = 0.1
+volume_rand = 1.0
+
+[node name="Boop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_frmj4")
+volume_db = -10.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1
+
+[node name="AdvancedDialog" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_frmj4")
+volume_db = -15.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1
+
+[node name="SubmitText" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_2h8ux")
+volume_db = -12.0
+script = ExtResource("12_8csdn")
+
+[node name="Enter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_np18e")
+volume_db = -10.0
+script = ExtResource("12_8csdn")
+
+[node name="Appear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_dpukx")
+volume_db = -20.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1
+
+[node name="Disappear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_du28m")
+volume_db = -20.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1
+
+[node name="WriteChalk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_xb03i")
+volume_db = -10.0
+script = ExtResource("12_8csdn")
+sfxs = Array[AudioStreamWAV]([ExtResource("17_xb03i"), ExtResource("18_3orq8"), ExtResource("19_qaqm7"), ExtResource("20_xxk12"), ExtResource("21_jx3vi"), ExtResource("22_p11fn"), ExtResource("23_dnw6b"), ExtResource("24_j4ock")])
+pitch_rand = 0.1
+volume_rand = 0.5
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_3d6ba")
+volume_db = -20.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1
+volume_rand = 0.25
+
+[node name="Wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_qmalr")
+volume_db = -20.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1
+volume_rand = 0.25
+
+[node name="Explode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_p0qjn")
+volume_db = -15.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1
+volume_rand = 0.25
+
+[node name="Swap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_1t67c")
+volume_db = -15.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1
+volume_rand = 0.25
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_pqgxu")
+volume_db = -15.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1
+volume_rand = 0.25
+
+[node name="CorrectSort" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_2h8ux")
+volume_db = -12.0
+script = ExtResource("12_8csdn")
+
+[node name="IncorrectSort" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_qmalr")
+volume_db = -12.0
+script = ExtResource("12_8csdn")
+
+[node name="PickUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_dpukx")
+volume_db = -20.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1
+
+[node name="Drop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_du28m")
+volume_db = -20.0
+script = ExtResource("12_8csdn")
+pitch_rand = 0.1

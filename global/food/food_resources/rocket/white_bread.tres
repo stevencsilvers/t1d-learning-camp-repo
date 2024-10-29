@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://3w5e2ewpf34k"]
+
+[ext_resource type="Script" path="res://global/food/food_resources/food.gd" id="1_ohelo"]
+[ext_resource type="Texture2D" uid="uid://ghe4aqa0cafy" path="res://global/food/sprites/white_bread.png" id="2_nmemo"]
+
+[resource]
+script = ExtResource("1_ohelo")
+name = "White Bread"
+sprite = ExtResource("2_nmemo")
+rocket = true

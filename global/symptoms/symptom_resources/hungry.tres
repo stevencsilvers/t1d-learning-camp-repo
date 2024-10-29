@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Symptom" load_steps=3 format=3 uid="uid://bopn8iy3emsce"]
+
+[ext_resource type="Script" path="res://global/symptoms/symptom.gd" id="1_2duvh"]
+[ext_resource type="Texture2D" uid="uid://bx5d1sjtga02f" path="res://global/symptoms/sprites/hungry.png" id="2_oahir"]
+
+[resource]
+script = ExtResource("1_2duvh")
+name = "very hungry"
+sprite = ExtResource("2_oahir")
+high = false

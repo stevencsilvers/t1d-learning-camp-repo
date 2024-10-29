@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cftdqdxawq74b"]
+
+[ext_resource type="Script" path="res://worlds/space/entities/enemy/enemy_components/shoot_component.gd" id="1_ap0hw"]
+
+[node name="ShootComponent" type="Node2D"]
+script = ExtResource("1_ap0hw")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

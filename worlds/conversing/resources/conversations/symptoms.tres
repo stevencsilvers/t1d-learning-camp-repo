@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Conversation" load_steps=7 format=3 uid="uid://dc1b1x43ape72"]
+
+[ext_resource type="Texture2D" uid="uid://utnuetkf5c7y" path="res://worlds/conversing/environment/backgrounds/classroom.png" id="1_q605n"]
+[ext_resource type="Script" path="res://global/resources/bedrock_call.gd" id="2_nhtsh"]
+[ext_resource type="Script" path="res://global/resources/conversation.gd" id="3_u4i1a"]
+
+[sub_resource type="Resource" id="Resource_26eoe"]
+script = ExtResource("2_nhtsh")
+model = "base"
+prompt = "Hello!(You are a pediatrician quizzing a child with type 1 diabetes. Give them feedback on their answer in a couple short sentences. The correct answer: Blood sugar is too high) You: If you need to pee a lot, is that a sign of your blood sugar being too HIGH or too LOW? Other: _. You: "
+length = 100
+temp = 0.2
+top_p = 0.3
+
+[sub_resource type="Resource" id="Resource_bfv2c"]
+script = ExtResource("2_nhtsh")
+model = "base"
+prompt = "Hello!(You are a pediatrician quizzing a child with type 1 diabetes. Give them feedback on their answer in a couple short sentences. The correct answer: Blood sugar is too low) You: If you feel very hungry, is that a sign of your blood sugar being too HIGH or too LOW? Other: _. You: "
+length = 100
+temp = 0.2
+top_p = 0.3
+
+[sub_resource type="Resource" id="Resource_t7erp"]
+script = ExtResource("2_nhtsh")
+model = "base"
+prompt = "(You are a pediatrician talking to a child with type 1 diabetes about the symptoms of high blood sugar and low blood sugar. Limit your response to a few sentences. If they don't have a question, then you don't need to explain anything else.) You: Do you have any questions about these symptoms? Other: _. You: "
+length = 100
+temp = 0.5
+top_p = 0.6
+
+[resource]
+script = ExtResource("3_u4i1a")
+background = ExtResource("1_q605n")
+dialog = Array[String](["Hello! Back again bright and early.", "I hope you're enjoying the camp!", "Today, our lesson will be on how to tell if your blood sugar is too low or too high.", "Like you learned before, you need to keep your blood sugar at just the right level.", "If you don't help your body control your blood sugar, you might not feel well.", "~high", "Let's go through what you might feel when your blood sugar is too high.", "~tired", "First, you might feel very tired, even if you got enough sleep!", "~peeing", "Second, you could need to pee a lot. This is because your body is trying to get rid of the extra sugar!", "~thirsty", "Third, you might feel very thirsty because of how much you are going to the bathroom.", "~", "Make sure you always drink enough water!", "~low", "Now, let's learn how you might feel when your blood sugar is too low.", "~sweating", "First, you might sweat a lot, even if you aren't hot!", "~hungry", "Second, you might also feel very hungry, because your body does not have enough energy.", "~dizziness", "Third, you could feel dizzy or not be able to think clearly.", "~", "When you feel any of these things, make sure to tell a trusted adult immediately so you can stay healthy!", "Now, let's do some review!", "~peeing", "If you need to pee a lot, is that a sign of your blood sugar being too high or too low?", "_", "^", "~hungry", "If you feel very hungry, is that a sign of your blood sugar being too high or too low?", "_", "^", "~", "Great job learning today!", "Tomorrow, we will learn about some things you can do if you feel like your blood sugar is too high or too low.", "Do you have any questions about these ways you might feel?", "_", "^", "Thanks for another great lesson!", "I'll see you later!"])
+bedrock_calls = Array[ExtResource("2_nhtsh")]([SubResource("Resource_26eoe"), SubResource("Resource_bfv2c"), SubResource("Resource_t7erp")])
