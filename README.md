@@ -17,7 +17,3 @@ the child have a good understanding. It would be impossible to manually map
 out the endless conversation pathways to match every potential user-inputted
 response, so the use of a large language model allows for the creation of
 dynamic responses to the player in real time.
-
-The project at its current state is fully playable but still a prototype that
-I intend to expand in the future.
-
