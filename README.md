@@ -21,5 +21,3 @@ dynamic responses to the player in real time.
 The project at its current state is fully playable but still a prototype that
 I intend to expand in the future.
 
-
-Video description of project: https://www.youtube.com/watch?v=bdC6YnFURfI
